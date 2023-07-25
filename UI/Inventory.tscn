@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cy46umdw25tb6"]
+
+[ext_resource type="StyleBox" uid="uid://boyhwcuefkdjp" path="res://Panel.tres" id="1_51i2r"]
+[ext_resource type="Script" path="res://UI/Inventory.gd" id="2_hj4xn"]
+
+[node name="Inventory" type="PanelContainer"]
+offset_right = 200.0
+offset_bottom = 200.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("1_51i2r")
+script = ExtResource("2_hj4xn")
+
+[node name="ItemList" type="GridContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+columns = 6

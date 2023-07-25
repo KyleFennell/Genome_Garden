@@ -1,0 +1,148 @@
+[gd_scene load_steps=14 format=3 uid="uid://b5fasbkcgoolp"]
+
+[ext_resource type="Script" path="res://UI/LevelUI.gd" id="1_yktxo"]
+[ext_resource type="PackedScene" uid="uid://c1rf61qm6gcsx" path="res://UI/Goals/Goals.tscn" id="2_t0hqm"]
+[ext_resource type="StyleBox" uid="uid://bbnya0yydf4i2" path="res://Panel_Green.tres" id="2_wsx2g"]
+[ext_resource type="StyleBox" uid="uid://ddpawkwbkxx4w" path="res://Panel_Light.tres" id="3_8y3g6"]
+[ext_resource type="PackedScene" uid="uid://cy46umdw25tb6" path="res://UI/Inventory.tscn" id="3_33qvr"]
+[ext_resource type="Script" path="res://UI/Breeder.gd" id="5_0b5j4"]
+[ext_resource type="StyleBox" uid="uid://boyhwcuefkdjp" path="res://Panel.tres" id="5_44cka"]
+[ext_resource type="Script" path="res://UI/CompletePanel.gd" id="6_8unlu"]
+[ext_resource type="PackedScene" uid="uid://6vqdxjk0lq5g" path="res://UI/Preview/PreviewTab.tscn" id="6_a403g"]
+[ext_resource type="PackedScene" uid="uid://c4h56fb6ye0y4" path="res://UI/Identify/IdentifyTab.tscn" id="7_56prm"]
+[ext_resource type="Script" path="res://UI/Mutations.gd" id="8_r0jyx"]
+[ext_resource type="Texture2D" uid="uid://ctu4b6g1vt2yt" path="res://Resources/UI/Back_Icon.png" id="11_2y7wv"]
+[ext_resource type="Texture2D" uid="uid://bhjqal27r7xu5" path="res://Resources/UI/Menu.png" id="12_vlihy"]
+
+[node name="LevelUI" type="MarginContainer"]
+custom_minimum_size = Vector2(200, 200)
+offset_right = 100.0
+offset_bottom = 100.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_yktxo")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Tabs" type="TabContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_colors/font_unselected_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+theme_override_styles/tab_selected = ExtResource("2_wsx2g")
+theme_override_styles/tab_unselected = ExtResource("3_8y3g6")
+theme_override_styles/panel = ExtResource("5_44cka")
+tab_alignment = 1
+
+[node name="Breed" type="VBoxContainer" parent="VBoxContainer/Tabs"]
+unique_name_in_owner = true
+layout_mode = 2
+script = ExtResource("5_0b5j4")
+
+[node name="Preview" parent="VBoxContainer/Tabs" instance=ExtResource("6_a403g")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Identify" parent="VBoxContainer/Tabs" instance=ExtResource("7_56prm")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Mutations" type="VBoxContainer" parent="VBoxContainer/Tabs"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+script = ExtResource("8_r0jyx")
+
+[node name="Inventory" parent="VBoxContainer" instance=ExtResource("3_33qvr")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_stretch_ratio = 2.0
+mouse_filter = 1
+
+[node name="Goals" parent="VBoxContainer" instance=ExtResource("2_t0hqm")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="CompleteContainer" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("6_8unlu")
+
+[node name="Container" type="Container" parent="CompleteContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CompleteContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="Container" type="Container" parent="CompleteContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="CompleteContainer/VBoxContainer"]
+custom_minimum_size = Vector2(50, 30)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("5_44cka")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CompleteContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CompleteContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Complete!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CompleteContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="CompleteContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="CompleteContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="BackButton" type="TextureButton" parent="CompleteContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/AspectRatioContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("11_2y7wv")
+stretch_mode = 4
+
+[node name="MarginContainer2" type="MarginContainer" parent="CompleteContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="CompleteContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+
+[node name="OkButton" type="TextureButton" parent="CompleteContainer/VBoxContainer/PanelContainer/VBoxContainer/HBoxContainer/MarginContainer2/AspectRatioContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("12_vlihy")
+stretch_mode = 4
+
+[node name="Container2" type="Container" parent="CompleteContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Container2" type="Container" parent="CompleteContainer"]
+layout_mode = 2
+size_flags_horizontal = 3

@@ -1,0 +1,292 @@
+[
+	{
+		"name": "dominant_red_yellow",
+		"alleles": ["R", "r"],
+		"phenotypes": {
+			"R*": {
+				"colour": {
+					"value": 0
+				}
+			},
+			"r*": {
+				"colour": {
+					"value": 1
+				}
+			}
+		},
+	},
+	{
+		"name": "dominant_red_yellow_inner",
+		"alleles": ["R", "r"],
+		"phenotypes": {
+			"R*": {
+				"colour_inner": {
+					"value": 0
+				}
+			},
+			"r*": {
+				"colour_inner": {
+					"value": 1
+				}
+			}
+		},
+	},
+	{
+		"name": "pigment",
+		"alleles": ["P", "p"],
+		"phenotypes": {
+			"p*": {
+				"interactions": {
+					"supresses_colour": {
+						"value": 1
+					}
+				}
+			}
+		}
+	},
+	{
+		"name": "co_dominant_red_yellow",
+		"alleles": ["R", "Y"],
+		"phenotypes": {
+			"RR": {
+				"colour": {
+					"value": 0,
+				}
+			},
+			"RY": {
+				"colour": {
+					"value": 6,
+				}
+			},
+			"YY": {
+				"colour": {
+					"value": 1,
+				}
+			}
+		},
+	},
+	{
+		"name": "dominant_red_yellow_blue",
+		"alleles": ["R", "y", "b"],
+		"phenotypes": {
+			"R*": {
+				"colour": {
+					"value": 0,
+				}
+			},
+			"y*": {
+				"colour": {
+					"value": 1,
+				}
+			},
+			"b*": {
+				"colour": {
+					"value": 2,
+				}
+			}
+		},
+	},
+	{
+		"name": "half_red_a",
+		"alleles": ["R", "r"],
+		"phenotypes": {
+			"RR": {
+				"interactions": {
+					"half_red": {
+						"value": 1
+					},
+				}
+			},
+			"**": {
+				"colour": {
+					"value": 4,
+				}
+			}
+		},
+	},
+	{
+		"name": "half_red_b",
+		"alleles": ["R", "r"],
+		"phenotypes": {
+			"RR": {
+				"interactions": {
+					"half_red": {
+						"value": 1
+					},
+				}
+			},
+			"**": {
+				"colour": {
+					"value": 4,
+				}
+			}
+		},
+	},
+	{
+		"name": "3_bit_red",
+		"alleles": ["R", "r"],
+		"phenotypes": {
+			"R*": {
+				"interactions": {
+					"3_bit_colour_mixer": {
+						"value": 1
+					},
+				}
+			},
+			"**": {
+				"interactions": {
+					"3_bit_colour_mixer": {
+						"value": 0
+					},
+				}
+			}
+		},
+	},
+	{
+		"name": "3_bit_yellow",
+		"alleles": ["Y", "y"],
+		"phenotypes": {
+			"Y*": {
+				"interactions": {
+					"3_bit_colour_mixer": {
+						"value": 2
+					},
+				}
+			},
+			"**": {
+				"interactions": {
+					"3_bit_colour_mixer": {
+						"value": 0
+					},
+				}
+			}
+		},
+	},
+	{
+		"name": "3_bit_blue",
+		"alleles": ["B", "b"],
+		"phenotypes": {
+			"B*": {
+				"interactions": {
+					"3_bit_colour_mixer": {
+						"value": 4
+					},
+				}
+			},
+			"**": {
+				"interactions": {
+					"3_bit_colour_mixer": {
+						"value": 0
+					},
+				}
+			}
+		},
+	},
+	{
+		"name": "3_bit_red_strong",
+		"alleles": ["R", "r"],
+		"phenotypes": {
+			"RR": {
+				"interactions": {
+					"3_bit_colour_mixer": {
+						"value": 7
+					},
+				}
+			},
+			"Rr": {
+				"interactions": {
+					"3_bit_colour_mixer": {
+						"value": 1
+					},
+				}
+			},
+			"rr": {
+				"interactions": {
+					"3_bit_colour_mixer": {
+						"value": 0
+					},
+				}
+			}
+		},
+	},
+	{
+		"name": "3_bit_yellow_strong",
+		"alleles": ["Y", "y"],
+		"phenotypes": {
+			"YY": {
+				"interactions": {
+					"3_bit_colour_mixer": {
+						"value": 7
+					},
+				}
+			},
+			"Yy": {
+				"interactions": {
+					"3_bit_colour_mixer": {
+						"value": 2
+					},
+				}
+			},
+			"yy": {
+				"interactions": {
+					"3_bit_colour_mixer": {
+						"value": 0
+					},
+				}
+			}
+		},
+	},
+	{
+		"name": "3_bit_blue_strong",
+		"alleles": ["B", "b"],
+		"phenotypes": {
+			"BB": {
+				"interactions": {
+					"3_bit_colour_mixer": {
+						"value": 7
+					}
+				}
+			},
+			"Bb": {
+				"interactions": {
+					"3_bit_colour_mixer": {
+						"value": 4
+					},
+				}
+			},
+			"bb": {
+				"interactions": {
+					"3_bit_colour_mixer": {
+						"value": 0
+					},
+				}
+			}
+		},
+	},
+	{
+		"name": "hidden_purple",
+		"alleles": ["R", "P", "p", "r"],
+		"phenotypes": {
+			"R*": {
+				"colour": {
+					"value": 0
+				}
+			},
+			"P*": {
+				"colour": {
+					"value": 14
+				}
+			},
+			"p*": {
+				"colour": {
+					"value": 7
+				}
+			},
+			"r*": {
+				"colour": {
+					"value": 3
+				}
+			},
+		},
+	},
+]

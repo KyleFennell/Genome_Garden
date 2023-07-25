@@ -1,0 +1,50 @@
+[gd_scene load_steps=4 format=3 uid="uid://dp3n746tme6fk"]
+
+[ext_resource type="Texture2D" uid="uid://c7te5fnjbuoga" path="res://Resources/UI/Empty_Slot.png" id="1_6e18m"]
+[ext_resource type="Texture2D" uid="uid://52dkx1he5l0d" path="res://Resources/Circles.tres" id="2_qovfc"]
+
+[sub_resource type="GDScript" id="GDScript_klmhw"]
+script/source = "extends CenterContainer
+
+@onready var ItemTexture = %Item_Texture
+@export var item = {colour = 2}
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	ItemTexture.texture.set_colour(item[\"colour\"])
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+
+func _can_drop_data(at_position, data):
+	return data.is_breedable
+
+func _drop_data(at_position, data):
+	item = data.item
+	ItemTexture.texture.set_colour(item[\"colour\"])
+
+func _get_drag_data(at_position):
+	if item == null:
+		return null
+	return {\"item\": item, \"is_breedable\": true}
+"
+
+[node name="Container" type="CenterContainer"]
+offset_right = 16.0
+offset_bottom = 16.0
+script = SubResource("GDScript_klmhw")
+
+[node name="Backgroud_Texture" type="TextureRect" parent="."]
+texture_filter = 1
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+texture = ExtResource("1_6e18m")
+
+[node name="Item_Texture" type="TextureRect" parent="Backgroud_Texture"]
+unique_name_in_owner = true
+texture_filter = 1
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+offset_right = 16.0
+offset_bottom = 16.0
+texture = ExtResource("2_qovfc")

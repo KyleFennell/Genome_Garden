@@ -1,0 +1,177 @@
+[gd_scene load_steps=10 format=3 uid="uid://sbaua26wbca"]
+
+[ext_resource type="StyleBox" uid="uid://boyhwcuefkdjp" path="res://Panel.tres" id="1_prqu4"]
+[ext_resource type="PackedScene" uid="uid://uo5jmwg10vix" path="res://UI/Header_Bar.tscn" id="2_0ucvc"]
+[ext_resource type="Script" path="res://UI/UIRoot.gd" id="2_842ad"]
+[ext_resource type="PackedScene" uid="uid://b5fasbkcgoolp" path="res://UI/LevelUI.tscn" id="3_16cw8"]
+[ext_resource type="Script" path="res://UI/SelectUI.gd" id="5_cg6o2"]
+[ext_resource type="StyleBox" uid="uid://ddpawkwbkxx4w" path="res://Panel_Light.tres" id="6_w36n2"]
+[ext_resource type="Script" path="res://Tutorial.gd" id="7_32kts"]
+[ext_resource type="StyleBox" uid="uid://bwnyx0lv1gftl" path="res://Spotlight_Panel.tres" id="7_lj0bl"]
+[ext_resource type="PackedScene" uid="uid://bwx6fag8kd0rw" path="res://UI/NotificationModal.tscn" id="7_myx6d"]
+
+[node name="Main" type="Node2D"]
+
+[node name="UIRoot" type="PanelContainer" parent="."]
+offset_right = 288.0
+offset_bottom = 325.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+theme_override_styles/panel = ExtResource("1_prqu4")
+script = ExtResource("2_842ad")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UIRoot"]
+layout_mode = 2
+
+[node name="HeaderBar" parent="UIRoot/VBoxContainer" instance=ExtResource("2_0ucvc")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="UIRoot/VBoxContainer"]
+layout_mode = 2
+
+[node name="LevelUI" parent="UIRoot/VBoxContainer" instance=ExtResource("3_16cw8")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_stretch_ratio = 7.0
+
+[node name="SelectUI" type="ScrollContainer" parent="UIRoot/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 4.0
+script = ExtResource("5_cg6o2")
+
+[node name="LevelContainer" type="VBoxContainer" parent="UIRoot/VBoxContainer/SelectUI"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Greyout" type="MarginContainer" parent="UIRoot"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = -2
+theme_override_constants/margin_top = -2
+theme_override_constants/margin_right = -2
+theme_override_constants/margin_bottom = -2
+
+[node name="Panel" type="Panel" parent="UIRoot/Greyout"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="InfoPanel" type="MarginContainer" parent="UIRoot"]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="PanelContainer" type="PanelContainer" parent="UIRoot/InfoPanel"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("6_w36n2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UIRoot/InfoPanel/PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="UIRoot/InfoPanel/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Info
+"
+horizontal_alignment = 1
+
+[node name="TabContainer" type="TabContainer" parent="UIRoot/InfoPanel/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 11
+
+[node name="Hints" type="VBoxContainer" parent="UIRoot/InfoPanel/PanelContainer/VBoxContainer/TabContainer"]
+layout_mode = 2
+
+[node name="Genomes" type="VBoxContainer" parent="UIRoot/InfoPanel/PanelContainer/VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Iteractions" type="VBoxContainer" parent="UIRoot/InfoPanel/PanelContainer/VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Genome" type="VBoxContainer" parent="UIRoot/InfoPanel/PanelContainer/VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Tutorial" type="Control" parent="UIRoot"]
+layout_mode = 2
+script = ExtResource("7_32kts")
+
+[node name="SpotlightAnchor" type="Control" parent="UIRoot/Tutorial"]
+layout_mode = 2
+anchors_preset = 0
+offset_right = 284.0
+offset_bottom = 321.0
+
+[node name="Spotlight" type="MarginContainer" parent="UIRoot/Tutorial/SpotlightAnchor"]
+unique_name_in_owner = true
+layout_mode = 2
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -164.0
+offset_top = -182.5
+offset_right = -124.0
+offset_bottom = -142.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = -500
+theme_override_constants/margin_top = -500
+theme_override_constants/margin_right = -500
+theme_override_constants/margin_bottom = -500
+
+[node name="Panel" type="Panel" parent="UIRoot/Tutorial/SpotlightAnchor/Spotlight"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("7_lj0bl")
+
+[node name="TextAnchor" type="Control" parent="UIRoot/Tutorial"]
+layout_mode = 1
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Text" type="PanelContainer" parent="UIRoot/Tutorial/TextAnchor"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("1_prqu4")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UIRoot/Tutorial/TextAnchor/Text"]
+layout_mode = 2
+
+[node name="ModalAnchor" type="Control" parent="UIRoot"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="NotificationModal" parent="UIRoot/ModalAnchor" instance=ExtResource("7_myx6d")]
+unique_name_in_owner = true
+layout_mode = 1
+offset_left = -100.0
+offset_top = -85.0
+offset_right = 100.0
+offset_bottom = -5.0
+size_flags_horizontal = 4
+size_flags_vertical = 0

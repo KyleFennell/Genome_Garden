@@ -1,0 +1,41 @@
+[gd_scene load_steps=7 format=3 uid="uid://d3bns8717dqyn"]
+
+[ext_resource type="Script" path="res://UI/Common/DeleteSlot.gd" id="1_koo34"]
+[ext_resource type="Texture2D" uid="uid://m1s5qdv22igl" path="res://Resources/UI/Delete.png" id="2_r26w0"]
+[ext_resource type="PackedScene" uid="uid://bvd0t6ahgdtt5" path="res://UI/Common/ItemDisplay.tscn" id="3_8x5ch"]
+[ext_resource type="Texture2D" uid="uid://ywb8dhuqu37j" path="res://Resources/Coloured_Shapes/Coloured_Circles.png" id="4_rl6ay"]
+[ext_resource type="Script" path="res://Resources/SubTexture.gd" id="5_7jay3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0l8sw"]
+resource_local_to_scene = true
+atlas = ExtResource("4_rl6ay")
+region = Rect2(0, 0, 16, 16)
+script = ExtResource("5_7jay3")
+h_images = 4
+v_images = 4
+sub_width = 16
+sub_height = 16
+
+[node name="DeleteSlot" type="MarginContainer"]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 0
+script = ExtResource("1_koo34")
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
+layout_mode = 2
+
+[node name="BackgroundTexture" type="TextureRect" parent="AspectRatioContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_r26w0")
+stretch_mode = 4
+
+[node name="ItemDisplay" parent="AspectRatioContainer" instance=ExtResource("3_8x5ch")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+texture = SubResource("AtlasTexture_0l8sw")

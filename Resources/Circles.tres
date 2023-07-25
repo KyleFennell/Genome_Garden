@@ -1,0 +1,13 @@
+[gd_resource type="AtlasTexture" load_steps=3 format=3 uid="uid://52dkx1he5l0d"]
+
+[ext_resource type="Texture2D" uid="uid://ywb8dhuqu37j" path="res://Resources/Coloured_Shapes/Coloured_Circles.png" id="1_51tyh"]
+[ext_resource type="Script" path="res://Resources/SubTexture.gd" id="2_jb03r"]
+
+[resource]
+atlas = ExtResource("1_51tyh")
+region = Rect2(0, 0, 16, 16)
+script = ExtResource("2_jb03r")
+h_images = 4
+v_images = 4
+sub_width = 16
+sub_height = 16

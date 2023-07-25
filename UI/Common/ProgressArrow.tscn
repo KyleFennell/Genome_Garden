@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://cc3evauixtx3l"]
+
+[ext_resource type="Script" path="res://UI/Common/ProgressArrow.gd" id="1_d2wng"]
+[ext_resource type="Texture2D" uid="uid://dldqw74y3nhgo" path="res://UI/Common/Progress_Arrow.tres" id="1_pgffl"]
+
+[node name="ProgressBar" type="MarginContainer"]
+size_flags_horizontal = 3
+script = ExtResource("1_d2wng")
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
+layout_mode = 2
+
+[node name="ProgressBarTexture" type="TextureRect" parent="AspectRatioContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("1_pgffl")
+stretch_mode = 4
+
+[node name="ProgressTimer" type="Timer" parent="."]
+unique_name_in_owner = true

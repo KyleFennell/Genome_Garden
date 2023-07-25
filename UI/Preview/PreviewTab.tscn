@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://6vqdxjk0lq5g"]
+
+[ext_resource type="Script" path="res://UI/Preview/PreviewTab.gd" id="1_6d8ah"]
+[ext_resource type="PackedScene" uid="uid://bdm8heeojuy7h" path="res://UI/Common/ItemSlot.tscn" id="2_ulb5q"]
+[ext_resource type="StyleBox" uid="uid://ddpawkwbkxx4w" path="res://Panel_Light.tres" id="3_pbwlf"]
+
+[node name="Preview" type="VBoxContainer"]
+visible = false
+script = ExtResource("1_6d8ah")
+
+[node name="ParentContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Container" type="Container" parent="ParentContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="ItemSlot" parent="ParentContainer" instance=ExtResource("2_ulb5q")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Container2" type="Container" parent="ParentContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ItemSlot2" parent="ParentContainer" instance=ExtResource("2_ulb5q")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Container3" type="Container" parent="ParentContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+theme_override_styles/panel = ExtResource("3_pbwlf")
+
+[node name="ChildrenContainer" type="HFlowContainer" parent="PanelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3

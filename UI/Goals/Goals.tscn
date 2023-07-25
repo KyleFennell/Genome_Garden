@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1rf61qm6gcsx"]
+
+[ext_resource type="StyleBox" uid="uid://boyhwcuefkdjp" path="res://Panel.tres" id="1_0rddx"]
+[ext_resource type="Script" path="res://UI/Goals/Goals.gd" id="2_r7ywo"]
+[ext_resource type="PackedScene" uid="uid://dtnoerkprbkj0" path="res://UI/Goals/GoalSlot.tscn" id="3_82vef"]
+
+[node name="GoalsPanel" type="PanelContainer"]
+offset_right = 72.0
+offset_bottom = 29.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+theme_override_styles/panel = ExtResource("1_0rddx")
+script = ExtResource("2_r7ywo")
+
+[node name="ItemList" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 1
+
+[node name="GoalSlot" parent="ItemList" instance=ExtResource("3_82vef")]
+layout_mode = 2

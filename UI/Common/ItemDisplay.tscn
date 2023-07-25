@@ -1,0 +1,71 @@
+[gd_scene load_steps=5 format=3 uid="uid://bvd0t6ahgdtt5"]
+
+[ext_resource type="Texture2D" uid="uid://rhempuko4g4p" path="res://Resources/Stars.tres" id="2_5mivi"]
+[ext_resource type="Script" path="res://UI/Common/ItemDisplay.gd" id="2_e05ov"]
+[ext_resource type="Texture2D" uid="uid://52dkx1he5l0d" path="res://Resources/Circles.tres" id="2_is8ca"]
+[ext_resource type="Texture2D" uid="uid://bniqxhmyqoevk" path="res://Resources/InnerCircles.tres" id="4_necrm"]
+
+[node name="ItemDisplay" type="MarginContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("2_e05ov")
+
+[node name="MainTexture" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_is8ca")
+stretch_mode = 4
+
+[node name="InnerTexture" type="TextureRect" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+texture = ExtResource("4_necrm")
+
+[node name="HiddenItem" type="MarginContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="HiddenTexture" type="TextureRect" parent="HiddenItem"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+texture = ExtResource("2_is8ca")
+
+[node name="StartingItemTag" type="Label" parent="HiddenItem"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 11
+text = "?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BottomRight" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="Identification" type="TextureRect" parent="BottomRight"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+texture = ExtResource("2_5mivi")
+
+[node name="StartingItemTag" type="Label" parent="BottomRight"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 11
+text = "s"
+horizontal_alignment = 1
+vertical_alignment = 1

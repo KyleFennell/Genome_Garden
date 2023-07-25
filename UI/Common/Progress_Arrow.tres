@@ -1,0 +1,10 @@
+[gd_resource type="AtlasTexture" load_steps=3 format=3 uid="uid://dldqw74y3nhgo"]
+
+[ext_resource type="Texture2D" uid="uid://dm7qy4dsfdqhp" path="res://Resources/UI/Progress_Arrow.png" id="1_3368m"]
+[ext_resource type="Script" path="res://UI/Common/Progress_Arrow.gd" id="2_bjghe"]
+
+[resource]
+resource_local_to_scene = true
+atlas = ExtResource("1_3368m")
+region = Rect2(0, 0, 16, 16)
+script = ExtResource("2_bjghe")

@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://dq4nd04ilkuji"]
+
+[ext_resource type="StyleBox" uid="uid://ddpawkwbkxx4w" path="res://Panel_Light.tres" id="1_6js88"]
+[ext_resource type="Script" path="res://UI/Identify/IdentifierRow.gd" id="2_gyew2"]
+[ext_resource type="PackedScene" uid="uid://bdm8heeojuy7h" path="res://UI/Common/ItemSlot.tscn" id="3_te4sm"]
+[ext_resource type="PackedScene" uid="uid://cc3evauixtx3l" path="res://UI/Common/ProgressArrow.tscn" id="4_jyn43"]
+
+[node name="IdentifierRow" type="PanelContainer"]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/panel = ExtResource("1_6js88")
+script = ExtResource("2_gyew2")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="InputSlot" parent="HBoxContainer" instance=ExtResource("3_te4sm")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ProgressArrow" parent="HBoxContainer" instance=ExtResource("4_jyn43")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="OutputSlot" parent="HBoxContainer" instance=ExtResource("3_te4sm")]
+unique_name_in_owner = true
+layout_mode = 2

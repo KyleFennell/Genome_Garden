@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4h56fb6ye0y4"]
+
+[ext_resource type="Script" path="res://UI/Identify/IdentifyTab.gd" id="1_5mh6x"]
+[ext_resource type="PackedScene" uid="uid://dq4nd04ilkuji" path="res://UI/Identify/IdentifierRow.tscn" id="2_u474e"]
+
+[node name="Identify" type="VBoxContainer"]
+visible = false
+script = ExtResource("1_5mh6x")
+
+[node name="IdentifierRow" parent="." instance=ExtResource("2_u474e")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="IdentifierRow2" parent="." instance=ExtResource("2_u474e")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="IdentifierRow3" parent="." instance=ExtResource("2_u474e")]
+unique_name_in_owner = true
+layout_mode = 2

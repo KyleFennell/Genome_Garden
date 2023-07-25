@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdm8heeojuy7h"]
+
+[ext_resource type="Script" path="res://UI/Common/ItemSlot.gd" id="2_3t548"]
+[ext_resource type="Texture2D" uid="uid://c7te5fnjbuoga" path="res://Resources/UI/Empty_Slot.png" id="2_72d7u"]
+[ext_resource type="PackedScene" uid="uid://bvd0t6ahgdtt5" path="res://UI/Common/ItemDisplay.tscn" id="3_37ehm"]
+
+[node name="ItemSlot" type="MarginContainer"]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 0
+script = ExtResource("2_3t548")
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="."]
+layout_mode = 2
+
+[node name="BackgroundTexture" type="TextureRect" parent="AspectRatioContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_72d7u")
+stretch_mode = 4
+
+[node name="ItemDisplay" parent="AspectRatioContainer" instance=ExtResource("3_37ehm")]
+unique_name_in_owner = true
+layout_mode = 2
