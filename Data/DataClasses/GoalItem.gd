@@ -4,11 +4,15 @@ class_name GoalItem
 const DEFAULT_TARGET_QUANITTY = 5
 var properties = {}
 var target_quantity
+var _item: Item
 
 func _init(dict: Dictionary):
-	super._init(dict)
+	_item = super._init(dict)
 	properties = dict.get("properties", {})
 	target_quantity = dict.get("quantity", DEFAULT_TARGET_QUANITTY)
+
+func get_item() -> Item:
+	return _item
 
 func equals(other) -> bool:
 	if not other is Item:

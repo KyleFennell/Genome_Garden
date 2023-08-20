@@ -105,7 +105,9 @@ visible = false
 layout_mode = 2
 
 [node name="Tutorial" type="Control" parent="UIRoot"]
+visible = false
 layout_mode = 2
+mouse_filter = 1
 script = ExtResource("7_32kts")
 
 [node name="SpotlightAnchor" type="Control" parent="UIRoot/Tutorial"]

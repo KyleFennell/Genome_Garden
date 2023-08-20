@@ -16,14 +16,15 @@ func set_goal(goal_item: GoalItem) -> void:
 	TargetDisplay.set_item(target_item)
 	update_quantity_label()
 
-func set_item(_item: Item) -> void:
+func set_item(item: Item) -> void:
 	if item != null:
 		update_quantity_label()
 		if current_quantity >= target_quantity:
 			BackgroundTexture.texture = complete_texture
-			super.set_item(item)
+			super.set_item(target_item)
 			goal_complete.emit()
 		else:
+			super.set_item(null)
 			BackgroundTexture.texture = incomplete_texture
 	
 func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
@@ -36,9 +37,23 @@ func update_quantity_label() -> void:
 
 func _drop_data(at_position: Vector2, data: Variant) -> void:
 	current_quantity += 1
-	super._drop_data(at_position, data)
+	set_item(data["item"])
+	data["previous_slot"].successful_drop(data)	
+	Globals.current_drag = null
 
-func _get_drag_data(at_position: Vector2) -> Variant:
+#func _get_drag_data(at_position: Vector2) -> Variant:
+#	if current_quantity > 0:
+#		create_drag_preview(TargetDisplay.MainTexture.texture)
+#
+#		var drag_data = {"item": target_item, "previous_slot": self}
+#		Globals.current_drag = drag_data
+#		return drag_data
+#	else:
+#		return null
+
+func potential_drop(new_item: Variant):
+	set_item(new_item)
+
+func successful_drop(new_item: Variant):
 	current_quantity -= 1
-	update_quantity_label()
-	return super._get_drag_data(at_position)
+	set_item(new_item)

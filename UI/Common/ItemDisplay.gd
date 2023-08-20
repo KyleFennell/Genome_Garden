@@ -53,9 +53,7 @@ func update_item_display() -> void:
 			var id = Database.Levels[Globals.current_level].identifications[raw_genotype]
 			Identification.show()
 			Identification.texture.set_colour(id)
-		
-	
 
-func set_item(item: Item) -> void:
-	self.item = item
+func set_item(_item: Item) -> void:
+	self.item = _item
 	update_item_display()

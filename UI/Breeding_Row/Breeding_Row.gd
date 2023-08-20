@@ -56,7 +56,7 @@ func reset() -> void:
 	Output.set_item(null)
 	
 func can_quick_store_item(_item: Item) -> bool:
-	return not Input1.has_item() or not Input2.has_item()
+	return (not Input1.has_item()) or (not Input2.has_item())
 	
 func quick_store_item(item: Item) -> void:
 	if not Input1.has_item():

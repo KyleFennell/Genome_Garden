@@ -20,4 +20,3 @@ class SpotlightParameters:
 			size = params.get("size", Vector2(41, 41))
 		position -= SPOTLIGHT_MARGIN
 		size += SPOTLIGHT_MARGIN
-func _set_spotlight_parameters

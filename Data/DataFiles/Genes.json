@@ -37,9 +37,11 @@
 		"phenotypes": {
 			"p*": {
 				"interactions": {
-					"supresses_colour": {
-						"value": 1
-					}
+					"supresses_colour": [
+						{
+							"value": 1
+						}
+					]
 				}
 			}
 		}
@@ -92,9 +94,11 @@
 		"phenotypes": {
 			"RR": {
 				"interactions": {
-					"half_red": {
-						"value": 1
-					},
+					"half_red": [
+						{
+							"value": 1
+						}
+					],
 				}
 			},
 			"**": {
@@ -110,9 +114,11 @@
 		"phenotypes": {
 			"RR": {
 				"interactions": {
-					"half_red": {
-						"value": 1
-					},
+					"half_red": [
+						{
+							"value": 1
+						}
+					],
 				}
 			},
 			"**": {
@@ -128,16 +134,20 @@
 		"phenotypes": {
 			"R*": {
 				"interactions": {
-					"3_bit_colour_mixer": {
-						"value": 1
-					},
+					"3_bit_colour_mixer": [
+						{
+							"value": 1
+						}
+					],
 				}
 			},
 			"**": {
 				"interactions": {
-					"3_bit_colour_mixer": {
-						"value": 0
-					},
+					"3_bit_colour_mixer": [
+						{
+							"value": 1
+						}
+					],
 				}
 			}
 		},
@@ -148,16 +158,20 @@
 		"phenotypes": {
 			"Y*": {
 				"interactions": {
-					"3_bit_colour_mixer": {
-						"value": 2
-					},
+					"3_bit_colour_mixer": [
+						{
+							"value": 1
+						}
+					],
 				}
 			},
 			"**": {
 				"interactions": {
-					"3_bit_colour_mixer": {
-						"value": 0
-					},
+					"3_bit_colour_mixer": [
+						{
+							"value": 1
+						}
+					],
 				}
 			}
 		},
@@ -168,16 +182,20 @@
 		"phenotypes": {
 			"B*": {
 				"interactions": {
-					"3_bit_colour_mixer": {
-						"value": 4
-					},
+					"3_bit_colour_mixer": [
+						{
+							"value": 1
+						}
+					],
 				}
 			},
 			"**": {
 				"interactions": {
-					"3_bit_colour_mixer": {
-						"value": 0
-					},
+					"3_bit_colour_mixer": [
+						{
+							"value": 1
+						}
+					],
 				}
 			}
 		},
@@ -188,23 +206,29 @@
 		"phenotypes": {
 			"RR": {
 				"interactions": {
-					"3_bit_colour_mixer": {
-						"value": 7
-					},
+					"3_bit_colour_mixer": [
+						{
+							"value": 1
+						}
+					],
 				}
 			},
 			"Rr": {
 				"interactions": {
-					"3_bit_colour_mixer": {
-						"value": 1
-					},
+					"3_bit_colour_mixer": [
+						{
+							"value": 1
+						}
+					],
 				}
 			},
 			"rr": {
 				"interactions": {
-					"3_bit_colour_mixer": {
-						"value": 0
-					},
+					"3_bit_colour_mixer": [
+						{
+							"value": 1
+						}
+					],
 				}
 			}
 		},
@@ -215,23 +239,29 @@
 		"phenotypes": {
 			"YY": {
 				"interactions": {
-					"3_bit_colour_mixer": {
-						"value": 7
-					},
+					"3_bit_colour_mixer": [
+						{
+							"value": 7
+						}
+					]
 				}
 			},
 			"Yy": {
 				"interactions": {
-					"3_bit_colour_mixer": {
-						"value": 2
-					},
+					"3_bit_colour_mixer": [
+						{
+							"value": 2
+						}
+					]
 				}
 			},
 			"yy": {
 				"interactions": {
-					"3_bit_colour_mixer": {
-						"value": 0
-					},
+					"3_bit_colour_mixer": [
+						{
+							"value": 0
+						}
+					]
 				}
 			}
 		},
@@ -242,23 +272,29 @@
 		"phenotypes": {
 			"BB": {
 				"interactions": {
-					"3_bit_colour_mixer": {
-						"value": 7
-					}
+					"3_bit_colour_mixer": [
+						{
+							"value": 7
+						}
+					]
 				}
 			},
 			"Bb": {
 				"interactions": {
-					"3_bit_colour_mixer": {
-						"value": 4
-					},
+					"3_bit_colour_mixer": [
+						{
+							"value": 4
+						},
+					]
 				}
 			},
 			"bb": {
 				"interactions": {
-					"3_bit_colour_mixer": {
-						"value": 0
-					},
+					"3_bit_colour_mixer": [
+						{
+							"value": 0
+						},
+					]
 				}
 			}
 		},

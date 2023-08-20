@@ -26,13 +26,16 @@ func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
 
 func _drop_data(_at_position: Vector2, data: Variant) -> void:
 	if item != null:
-		if data["previous_slot"].dropable:
-			data["previous_slot"].set_item(item)
+		# swap items
+		if data.has("previous_slot") and data["previous_slot"].dropable:
+			#can swap item
+			data["previous_slot"].successful_drop(item)
 			Globals.current_drag = null
 		else:
 			return
-	else:	
-		data["previous_slot"].set_item(null)
+	else:
+		# drop item
+		data["previous_slot"].successful_drop(null)
 		Globals.current_drag = null
 		
 	set_item(data.item)
@@ -40,15 +43,7 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 func _get_drag_data(_at_position: Vector2) -> Variant:
 	if dragable and item != null:
 		
-		var drag_preview = TextureRect.new()
-		drag_preview.texture = ItemDisplay.MainTexture.texture
-		drag_preview.position.x = -(drag_preview.texture.get_width()/2)
-		drag_preview.position.y = -(drag_preview.texture.get_height()/2)
-		
-		var container = Container.new()
-		container.add_child(drag_preview)
-		
-		set_drag_preview(container)
+		create_drag_preview(ItemDisplay.MainTexture.texture)
 		ItemDisplay.hide()
 		
 		var drag_data = {"item": item, "previous_slot": self}
@@ -57,6 +52,23 @@ func _get_drag_data(_at_position: Vector2) -> Variant:
 		return drag_data
 	
 	return null
+	
+func potential_drop(data: Variant):
+	ItemDisplay.show()
+
+func successful_drop(new_item):
+	set_item(new_item)
+	
+func create_drag_preview(texture: Texture):
+	var drag_preview = TextureRect.new()
+	drag_preview.texture = ItemDisplay.MainTexture.texture
+	drag_preview.position.x = -(drag_preview.texture.get_width()/2)
+	drag_preview.position.y = -(drag_preview.texture.get_height()/2)
+	
+	var container = Container.new()
+	container.add_child(drag_preview)
+	
+	set_drag_preview(container)
 
 func has_item() -> bool:
 	return item != null

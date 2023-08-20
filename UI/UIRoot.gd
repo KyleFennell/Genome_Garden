@@ -44,6 +44,6 @@ func _input(event):
 	if Globals.current_drag == null:
 		return
 	if not event.is_pressed():
-		Globals.current_drag["previous_slot"].ItemDisplay.show()
+		Globals.current_drag["previous_slot"].potential_drop(Globals.current_drag)
 		Globals.current_drag = null
 		print("drop caught")

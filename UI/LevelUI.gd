@@ -25,6 +25,7 @@ func _ready():
 		if child.has_signal("slot_clicked"):
 			child.connect("slot_clicked", on_functional_slot_clicked)
 	Tabs.connect("tab_changed", on_tab_changed)
+	Inventory.connect("slot_clicked", on_inventory_slot_clicked)
 
 func load_level(level_name: String):
 	loaded_level_name = level_name
@@ -45,7 +46,7 @@ func on_functional_slot_clicked(slot: ItemSlot):
 
 func on_inventory_slot_clicked(slot: ItemSlot):
 	var current_tab = Tabs.get_current_tab_control()
-	if current_tab.has("can_quick_store_item") and \
+	if current_tab.has_method("can_quick_store_item") and \
 			current_tab.can_quick_store_item(slot.item):
 		current_tab.quick_store_item(slot.item)
 		slot.set_item(null)
