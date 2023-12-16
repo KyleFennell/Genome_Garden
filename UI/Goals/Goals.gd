@@ -3,6 +3,7 @@ extends PanelContainer
 @onready var itemList = %ItemList
 @onready var GoalSlot = preload("res://UI/Goals/GoalSlot.tscn")
 
+signal auto_fill_goal
 signal all_goals_complete
 
 var INVENTORY_SIZE = 8
@@ -16,6 +17,7 @@ func load_goals(items: Array):
 		itemList.add_child(slot_instance)
 		slot_instance.connect("goal_complete", on_goal_complete)
 		slot_instance.set_goal(i)
+		slot_instance.connect("gui_input", Helpers.slot_click_event.bind(slot_instance, auto_fill_goal))
 
 func on_goal_complete():
 	for child in itemList.get_children():

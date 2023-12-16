@@ -1,4 +1,5 @@
 extends ItemSlot
+class_name GoalSlot
 
 var target_item = null
 var target_quantity = 1
@@ -18,6 +19,7 @@ func set_goal(goal_item: GoalItem) -> void:
 
 func set_item(item: Item) -> void:
 	if item != null:
+		current_quantity += 1
 		update_quantity_label()
 		if current_quantity >= target_quantity:
 			BackgroundTexture.texture = complete_texture
@@ -36,9 +38,9 @@ func update_quantity_label() -> void:
 	CompleteLabel.text = "/".join([str(current_quantity), str(target_quantity)])
 
 func _drop_data(at_position: Vector2, data: Variant) -> void:
-	current_quantity += 1
+	#current_quantity += 1
 	set_item(data["item"])
-	data["previous_slot"].successful_drop(data)	
+	data["previous_slot"].successful_drop(null)
 	Globals.current_drag = null
 
 #func _get_drag_data(at_position: Vector2) -> Variant:
@@ -51,9 +53,5 @@ func _drop_data(at_position: Vector2, data: Variant) -> void:
 #	else:
 #		return null
 
-func potential_drop(new_item: Variant):
-	set_item(new_item)
-
 func successful_drop(new_item: Variant):
 	current_quantity -= 1
-	set_item(new_item)

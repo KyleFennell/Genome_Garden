@@ -1,82 +1,120 @@
 [
 	{
 		"name": "Breeding",
-		"genome": ["dominant_red_yellow"],
+		"genome": [
+			"dominant_red_yellow"
+		],
 		"starting_inventory": [
 			{
-				"genes": {"dominant_red_yellow": "RR"},
+				"genes": {
+					"dominant_red_yellow": "RR"
+				}
 			},
 			{
-				"genes": {"dominant_red_yellow": "RR"}
+				"genes": {
+					"dominant_red_yellow": "RR"
+				}
 			}
 		],
 		"goal": [
 			{
-				"genes": {"dominant_red_yellow": "RR"}
+				"genes": {
+					"dominant_red_yellow": "RR"
+				}
 			}
 		]
 	},
 	{
 		"name": "Co-Dominance 1",
-		"genome": ["co_dominant_red_yellow"],
+		"genome": [
+			"co_dominant_red_yellow"
+		],
 		"starting_inventory": [
 			{
-				"genes": {"co_dominant_red_yellow": "RR"},
+				"genes": {
+					"co_dominant_red_yellow": "RR"
+				}
 			},
 			{
-				"genes": {"co_dominant_red_yellow": "YY"},
+				"genes": {
+					"co_dominant_red_yellow": "YY"
+				}
 			}
 		],
 		"goal": [
 			{
-				"genes": {"co_dominant_red_yellow": "RR"}
+				"genes": {
+					"co_dominant_red_yellow": "RR"
+				}
 			},
 			{
-				"genes": {"co_dominant_red_yellow": "RY"}
+				"genes": {
+					"co_dominant_red_yellow": "RY"
+				}
 			},
 			{
-				"genes": {"co_dominant_red_yellow": "YY"}
+				"genes": {
+					"co_dominant_red_yellow": "YY"
+				}
 			}
 		]
 	},
 	{
 		"name": "Recessive 1",
-		"genome": ["dominant_red_yellow"],
+		"genome": [
+			"dominant_red_yellow"
+		],
 		"starting_inventory": [
 			{
-				"genes": {"dominant_red_yellow": "Rr"},
+				"genes": {
+					"dominant_red_yellow": "Rr"
+				}
 			},
 			{
-				"genes": {"dominant_red_yellow": "Rr"}
+				"genes": {
+					"dominant_red_yellow": "Rr"
+				}
 			}
 		],
 		"goal": [
 			{
-				"genes": {"dominant_red_yellow": "rr"}
+				"genes": {
+					"dominant_red_yellow": "rr"
+				}
 			}
 		]
 	},
 	{
 		"name": "Recessive 2",
-		"genome": ["dominant_red_yellow"],
+		"genome": [
+			"dominant_red_yellow"
+		],
 		"starting_inventory": [
 			{
-				"genes": {"dominant_red_yellow": "RR"},
+				"genes": {
+					"dominant_red_yellow": "RR"
+				}
 			},
 			{
-				"genes": {"dominant_red_yellow": "rr"},
+				"genes": {
+					"dominant_red_yellow": "rr"
+				}
 			}
 		],
 		"goal": [
 			{
-				"genes": {"dominant_red_yellow": "rr"},
+				"genes": {
+					"dominant_red_yellow": "rr"
+				},
 				"quantity": 5
 			}
 		]
 	},
 	{
 		"name": "Multiple Alleles",
-		"genome": ["dominant_red_yellow_blue"],
+		"genome": [
+			"dominant_red_yellow_blue"
+		],
 		"starting_inventory": [
 			{
 				"genes": {
@@ -109,7 +147,10 @@
 	},
 	{
 		"name": "Multiple Genes",
-		"genome": ["dominant_red_yellow", "dominant_red_yellow_inner"],
+		"genome": [
+			"dominant_red_yellow",
+			"dominant_red_yellow_inner"
+		],
 		"starting_inventory": [
 			{
 				"genes": {
@@ -136,12 +177,15 @@
 					"dominant_red_yellow": "rr",
 					"dominant_red_yellow_inner": "R*"
 				}
-			},
+			}
 		]
 	},
 	{
 		"name": "Gene Supression",
-		"genome": ["co_dominant_red_yellow", "pigment"],
+		"genome": [
+			"co_dominant_red_yellow",
+			"pigment"
+		],
 		"starting_inventory": [
 			{
 				"genes": {
@@ -186,8 +230,8 @@
 	{
 		"name": "Additive Genes 1",
 		"genome": [
-			"3_bit_red", 
-			"3_bit_yellow", 
+			"3_bit_red",
+			"3_bit_yellow",
 			"3_bit_blue"
 		],
 		"starting_inventory": [
@@ -269,11 +313,15 @@
 						"value": 11
 					}
 				}
-			},		]
+			}
+		]
 	},
 	{
 		"name": "Additive Genes 2",
-		"genome": ["half_red_a", "half_red_b"],
+		"genome": [
+			"half_red_a",
+			"half_red_b"
+		],
 		"starting_inventory": [
 			{
 				"genes": {
@@ -286,7 +334,7 @@
 					"half_red_a": "Rr",
 					"half_red_b": "Rr"
 				}
-			},
+			}
 		],
 		"goal": [
 			{
@@ -319,56 +367,81 @@
 	},
 	{
 		"name": "Hidden Combinations",
-		"genome": ["hidden_purple"],
+		"genome": [
+			"hidden_purple"
+		],
 		"starting_inventory": [
 			{
-				"genes": {"hidden_purple": "RR"},
+				"genes": {
+					"hidden_purple": "RR"
+				}
 			},
 			{
-				"genes": {"hidden_purple": "rr"}
+				"genes": {
+					"hidden_purple": "rr"
+				}
 			}
 		],
 		"goal": [
 			{
-				"genes": {"hidden_purple": "PP"},
+				"genes": {
+					"hidden_purple": "PP"
+				},
 				"identified": true
 			},
 			{
-				"genes": {"hidden_purple": "pp"},
+				"genes": {
+					"hidden_purple": "pp"
+				},
 				"identified": true
 			}
 		],
 		"hidden_combinations": [
 			{
 				"parent1": {
-					"genes": {"hidden_purple": "Rr"},
+					"genes": {
+						"hidden_purple": "Rr"
+					},
 					"identified": true
 				},
 				"parent2": {
-					"genes": {"hidden_purple": "Rr"},
+					"genes": {
+						"hidden_purple": "Rr"
+					},
 					"identified": true
 				},
 				"child": {
-					"genes": {"hidden_purple": "Pr"}
+					"genes": {
+						"hidden_purple": "Pr"
+					}
 				},
 				"chance": 0.25
 			},
 			{
 				"parent1": {
-					"genes": {"hidden_purple": "P*"},
+					"genes": {
+						"hidden_purple": "P*"
+					}
 				},
 				"parent2": {
-					"genes": {"hidden_purple": "rr"},
+					"genes": {
+						"hidden_purple": "rr"
+					},
 					"identified": true
 				},
 				"child": {
-					"genes": {"hidden_purple": "pp"},
+					"genes": {
+						"hidden_purple": "pp"
+					}
 				},
 				"chance": 0.25
-			},
+			}
 		],
 		"hidden_alleles": {
-			"hidden_purple": ["P", "p"]
+			"hidden_purple": [
+				"P",
+				"p"
+			]
 		}
-	},
+	}
 ]

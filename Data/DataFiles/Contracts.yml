@@ -1,0 +1,141 @@
+- id: pea_breeding
+  requiremenets:
+    - kind: item
+      species: pea
+      genes:
+        colour_1: GG
+      quantity: !!int 5
+  rewards:
+    - kind: item
+      species: pea
+      genes:
+        colour_1: gg
+      quantity: 1
+    - kind: contract
+      id: recessive
+    - kind: dialogue
+      id: complete_dominance_1
+
+- id: pea_recessive
+  requiremenets:
+    - kind: item
+      species: pea
+      genes:
+        colour_1: gg
+      quantity: !!int 5
+  rewards:
+    - kind: item
+      species: flower_1
+      genes:
+        dominant_red_yellow: Rr
+      quantity: 1
+    - kind: contract
+      id: pea_heterozygous
+    - kind: contract
+      id: tulip_codominance
+    - kind: dialogue
+      id: incomplete_dominance_1
+    - kind: event
+      id: enable_idenfitication
+
+- id: pea_heterozygous
+  requirements:
+    - kind: item
+      species: pea
+      genes:
+        colour_1: Gg
+      identified: !!bool true
+  rewards:
+    - kind: item
+      species: pea 
+      genes:
+        colour_1: GG
+        texture: rr
+      quantity: !!int 2
+    - kind: contract
+      id: pea_phenotypes
+    - kind: dialogue
+      id: multiple_genes
+
+- id: tulip_codominance
+  requirements:
+    - kind: item
+      species: tulip
+      genes:
+        colour_1: RR
+      quantity: !!int 5
+    - kind: item
+      species: tulip
+      genes:
+        colour_1: rr
+      quantity: !!int 5
+  rewards:
+    - kind: item
+      species: tulip
+      genes:
+        colour_1: RR
+        pigment: pp
+      quanitty: !!int 1
+    - kind: dialogue
+      id: epistasis
+    - kind: contract
+      id: tulip_white
+
+- id: tulip_white
+  requirements:
+    - kind: item
+      species: tulip
+      genes:
+        colour_1: "**"
+        pigment: pp
+      quantity: !!int 15
+  rewards:
+    - kind: item
+      species: "chromatadil"
+      genes:
+      quantity: !!int 1
+    
+- id: pea_phenotypes
+  requirements:
+    - kind: item
+      species: pea 
+      genes:
+        colour_1: GG
+        texture: RR
+      quantity: !!int 5
+      match_phenotype: !!bool true
+    - kind: item
+      species: pea 
+      genes:
+        colour_1: GG
+        texture: rr
+      quantity: !!int 5
+      match_phenotype: !!bool true
+    - kind: item
+      species: pea 
+      genes:
+        colour_1: gg
+        texture: RR
+      quantity: !!int 5
+      match_phenotype: !!bool true
+    - kind: item
+      species: pea 
+      genes:
+        colour_1: gg
+        texture: rr
+      quantity: !!int 5
+      match_phenotype: !!bool true
+  rewards:
+    - kind: dialogue
+      id: floradex
+    - kind: pea
+      id: pea_sequencing_1
+
+- id: pea_sequencing_1
+  requirements:
+    - kind: floradex_sequence_count
+      species: pea
+      quantity: !!int 4
+  rewards:
+    - kind: dialogue
+      id: sequencing_rewards

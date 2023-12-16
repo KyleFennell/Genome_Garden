@@ -18,7 +18,9 @@ func full_duplicate() -> Item:
 		identified, is_starting_item
 	)
 
-func equals(other: Item) -> bool:
+func equals(other: Item, idenfitied_relevant: bool=false) -> bool:
 	if not other is Item:
+		return false
+	if idenfitied_relevant and other.identified != identified:
 		return false
 	return GeneHelpers.genes_match(self.genes, other.genes)

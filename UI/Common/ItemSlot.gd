@@ -56,7 +56,7 @@ func _get_drag_data(_at_position: Vector2) -> Variant:
 func potential_drop(data: Variant):
 	ItemDisplay.show()
 
-func successful_drop(new_item):
+func successful_drop(new_item: Variant):
 	set_item(new_item)
 	
 func create_drag_preview(texture: Texture):

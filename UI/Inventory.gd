@@ -32,8 +32,14 @@ func load_inventory(items: Array) -> void:
 		print("ERROR: too many items for inventory! InventorySize: ", INVENTORY_SIZE, " items: ", items.size())
 
 func reset() -> void:
+	itemList.get_children().all(func(child): child.set_item(null))
+
+func delete_item(item: Item) -> bool:
 	for child in itemList.get_children():
-		child.set_item(null)
+		if child.has_item() and item.equals(child.item, true):
+			child.set_item(null)
+			return true
+	return false
 
 func can_quick_store_item(_item: Item) -> bool:
 	for child in itemList.get_children():

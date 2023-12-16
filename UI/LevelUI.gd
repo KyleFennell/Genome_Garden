@@ -19,6 +19,7 @@ signal slot_clicked
 #var drag_data = null
 
 func _ready():
+	Goals.connect("auto_fill_goal", on_goal_auto_fill)
 	Goals.connect("all_goals_complete", on_all_goals_complete)
 	CompleteContainer.connect("confirm_level_complete", on_confirm_level_complete)
 	for child in Tabs.get_children():
@@ -30,6 +31,7 @@ func _ready():
 func load_level(level_name: String):
 	loaded_level_name = level_name
 	Goals.reset()
+	Inventory.reset()
 	for child in Tabs.get_children():
 		child.reset()
 	Tabs.current_tab = 0
@@ -55,6 +57,10 @@ func on_tab_changed(tab):
 	if self.previous_tab == 1:
 		Preview.clear_parents_to_inventory()
 	self.previous_tab = tab
+
+func on_goal_auto_fill(goal_slot: GoalSlot):
+	if (Inventory.delete_item(goal_slot.target_item)):
+		goal_slot.set_item(goal_slot.target_item)
 
 func on_all_goals_complete():
 	CompleteContainer.show()

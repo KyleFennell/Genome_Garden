@@ -1,0 +1,218 @@
+- name: Breeding
+  genome:
+  - dominant_red_yellow
+  starting_inventory:
+  - genes:
+    dominant_red_yellow: RR
+  - genes:
+    dominant_red_yellow: RR
+  goal:
+  - genes:
+    dominant_red_yellow: RR
+- name: Co-Dominance 1
+  genome:
+  - co_dominant_red_yellow
+  starting_inventory:
+  - genes:
+    co_dominant_red_yellow: RR
+  - genes:
+    co_dominant_red_yellow: YY
+  goal:
+  - genes:
+    co_dominant_red_yellow: RR
+  - genes:
+    co_dominant_red_yellow: RY
+  - genes:
+    co_dominant_red_yellow: YY
+- name: Recessive 1
+  genome:
+  - dominant_red_yellow
+  starting_inventory:
+  - genes:
+    dominant_red_yellow: Rr
+  - genes:
+    dominant_red_yellow: Rr
+  goal:
+  - genes:
+    dominant_red_yellow: rr
+- name: Recessive 2
+  genome:
+  - dominant_red_yellow
+  starting_inventory:
+  - genes:
+    dominant_red_yellow: RR
+  - genes:
+    dominant_red_yellow: rr
+  goal:
+  - genes:
+    dominant_red_yellow: rr
+    quantity: 5
+- name: Multiple Alleles
+  genome:
+  - dominant_red_yellow_blue
+  starting_inventory:
+  - genes:
+    dominant_red_yellow_blue: Ry
+  - genes:
+    dominant_red_yellow_blue: Rb
+  goal:
+  - genes:
+    dominant_red_yellow_blue: R*
+  - genes:
+    dominant_red_yellow_blue: y*
+  - genes:
+    dominant_red_yellow_blue: bb
+- name: Multiple Genes
+  genome:
+  - dominant_red_yellow
+  - dominant_red_yellow_inner
+  starting_inventory:
+  - genes:
+    dominant_red_yellow: RR
+    dominant_red_yellow_inner: rr
+  - genes:
+    dominant_red_yellow: rr
+    dominant_red_yellow_inner: RR
+  goal:
+  - genes:
+    dominant_red_yellow: R*
+    dominant_red_yellow_inner: rr
+  - genes:
+    dominant_red_yellow: rr
+    dominant_red_yellow_inner: R*
+- name: Gene Supression
+  genome:
+  - co_dominant_red_yellow
+  - pigment
+  starting_inventory:
+  - genes:
+    co_dominant_red_yellow: RR
+    pigment: pp
+  - genes:
+    co_dominant_red_yellow: YY
+    pigment: Pp
+  goal:
+  - genes:
+    co_dominant_red_yellow: RR
+    pigment: P*
+  - genes:
+    co_dominant_red_yellow: RY
+    pigment: P*
+  - genes:
+    co_dominant_red_yellow: YY
+    pigment: P*
+  - genes:
+    co_dominant_red_yellow: '**'
+    pigment: pp
+- name: Additive Genes 1
+  genome:
+  - 3_bit_red
+  - 3_bit_yellow
+  - 3_bit_blue
+  starting_inventory:
+  - genes:
+    3_bit_red: RR
+    3_bit_yellow: yy
+    3_bit_blue: bb
+  - genes:
+    3_bit_red: rr
+    3_bit_yellow: YY
+    3_bit_blue: bb
+  - genes:
+    3_bit_red: rr
+    3_bit_yellow: yy
+    3_bit_blue: BB
+  goal:
+  - properties:
+			colour:
+				value: !!int 4
+  - properties:
+			colour:
+				value: !!int 0
+  - properties:
+			colour:
+				value: !!int 6
+  - properties:
+			colour:
+				value: !!int 1
+  - properties:
+			colour:
+				value: !!int 8
+  - properties:
+			colour:
+				value: !!int 2
+  - properties:
+			colour:
+				value: !!int 7
+  - properties:
+			colour:
+				value: !!int 11
+- name: Additive Genes 2
+  genome:
+  - half_red_a
+  - half_red_b
+  starting_inventory:
+  - genes:
+    half_red_a: Rr
+    half_red_b: Rr
+  - genes:
+    half_red_a: Rr
+    half_red_b: Rr
+  goal:
+  - genes:
+    half_red_a: RR
+    half_red_b: RR
+  - genes:
+    half_red_a: RR
+    half_red_b: Rr
+    identified: true
+  - genes:
+    half_red_a: Rr
+    half_red_b: RR
+    identified: true
+  - genes:
+    half_red_a: '*r'
+    half_red_b: '*r'
+- name: Hidden Combinations
+  genome:
+  - hidden_purple
+  starting_inventory:
+  - genes:
+    hidden_purple: RR
+  - genes:
+    hidden_purple: rr
+  goal:
+  - genes:
+    hidden_purple: PP
+    identified: true
+  - genes:
+    hidden_purple: pp
+    identified: true
+  hidden_combinations:
+  - parent1:
+    genes:
+      hidden_purple: Rr
+    identified: true
+    parent2:
+    genes:
+      hidden_purple: Rr
+    identified: true
+    child:
+    genes:
+      hidden_purple: Pr
+    chance: !!float 0.25
+  - parent1:
+    genes:
+      hidden_purple: P*
+    parent2:
+    genes:
+      hidden_purple: rr
+    identified: true
+    child:
+    genes:
+      hidden_purple: pp
+    chance: !!float 0.25
+  hidden_alleles:
+  hidden_purple:
+    - P
+    - p

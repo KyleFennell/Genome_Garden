@@ -13,7 +13,7 @@
 					"value": 1
 				}
 			}
-		}
+		},
 	},
 	{
 		"name": "dominant_red_yellow_inner",
@@ -29,7 +29,7 @@
 					"value": 1
 				}
 			}
-		}
+		},
 	},
 	{
 		"name": "pigment",
@@ -52,20 +52,20 @@
 		"phenotypes": {
 			"RR": {
 				"colour": {
-					"value": 0
+					"value": 0,
 				}
 			},
 			"RY": {
 				"colour": {
-					"value": 6
+					"value": 6,
 				}
 			},
 			"YY": {
 				"colour": {
-					"value": 1
+					"value": 1,
 				}
 			}
-		}
+		},
 	},
 	{
 		"name": "dominant_red_yellow_blue",
@@ -73,20 +73,20 @@
 		"phenotypes": {
 			"R*": {
 				"colour": {
-					"value": 0
+					"value": 0,
 				}
 			},
 			"y*": {
 				"colour": {
-					"value": 1
+					"value": 1,
 				}
 			},
 			"b*": {
 				"colour": {
-					"value": 2
+					"value": 2,
 				}
 			}
-		}
+		},
 	},
 	{
 		"name": "half_red_a",
@@ -98,15 +98,15 @@
 						{
 							"value": 1
 						}
-					]
+					],
 				}
 			},
 			"**": {
 				"colour": {
-					"value": 4
+					"value": 4,
 				}
 			}
-		}
+		},
 	},
 	{
 		"name": "half_red_b",
@@ -118,15 +118,15 @@
 						{
 							"value": 1
 						}
-					]
+					],
 				}
 			},
 			"**": {
 				"colour": {
-					"value": 4
+					"value": 4,
 				}
 			}
-		}
+		},
 	},
 	{
 		"name": "3_bit_red",
@@ -138,7 +138,7 @@
 						{
 							"value": 1
 						}
-					]
+					],
 				}
 			},
 			"**": {
@@ -147,10 +147,10 @@
 						{
 							"value": 1
 						}
-					]
+					],
 				}
 			}
-		}
+		},
 	},
 	{
 		"name": "3_bit_yellow",
@@ -162,7 +162,7 @@
 						{
 							"value": 1
 						}
-					]
+					],
 				}
 			},
 			"**": {
@@ -171,10 +171,10 @@
 						{
 							"value": 1
 						}
-					]
+					],
 				}
 			}
-		}
+		},
 	},
 	{
 		"name": "3_bit_blue",
@@ -186,7 +186,7 @@
 						{
 							"value": 1
 						}
-					]
+					],
 				}
 			},
 			"**": {
@@ -195,10 +195,10 @@
 						{
 							"value": 1
 						}
-					]
+					],
 				}
 			}
-		}
+		},
 	},
 	{
 		"name": "3_bit_red_strong",
@@ -210,7 +210,7 @@
 						{
 							"value": 1
 						}
-					]
+					],
 				}
 			},
 			"Rr": {
@@ -219,7 +219,7 @@
 						{
 							"value": 1
 						}
-					]
+					],
 				}
 			},
 			"rr": {
@@ -228,10 +228,10 @@
 						{
 							"value": 1
 						}
-					]
+					],
 				}
 			}
-		}
+		},
 	},
 	{
 		"name": "3_bit_yellow_strong",
@@ -264,7 +264,7 @@
 					]
 				}
 			}
-		}
+		},
 	},
 	{
 		"name": "3_bit_blue_strong",
@@ -284,7 +284,7 @@
 					"3_bit_colour_mixer": [
 						{
 							"value": 4
-						}
+						},
 					]
 				}
 			},
@@ -293,11 +293,11 @@
 					"3_bit_colour_mixer": [
 						{
 							"value": 0
-						}
+						},
 					]
 				}
 			}
-		}
+		},
 	},
 	{
 		"name": "hidden_purple",
@@ -322,7 +322,7 @@
 				"colour": {
 					"value": 3
 				}
-			}
-		}
-	}
+			},
+		},
+	},
 ]
