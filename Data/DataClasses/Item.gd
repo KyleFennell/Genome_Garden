@@ -5,6 +5,7 @@ var genes = []
 var identified = false
 var is_starting_item = false
 var is_hidden = false
+var species: Species
 
 func _init(dict, is_identified=false, starting_item=false):
 	genes = dict.get("genes", [])

@@ -1,0 +1,33 @@
+name: Flower_1
+genes:
+  - name: colour_1
+      alleles:
+        - R
+        - "y"
+        - b
+      default: RR
+      phenotypes:
+        Ry:
+          colour: 
+            value: !!int 6
+        R*:
+          colour: 
+            value: !!int 0
+        y*:
+          colour:
+            value: !!int 1
+        bb:
+          colour:
+            value: !!int 2 
+
+  - name: pigment
+      alleles:
+        - P
+        - p
+      default: PP
+      phenotypes:
+        pp:
+          colour:
+            priority: !!int 1
+            value: !!int 4  
+  

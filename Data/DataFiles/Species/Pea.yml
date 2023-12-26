@@ -1,0 +1,28 @@
+name: Pea
+genes:
+  - name: colour_1
+      alleles:
+        - G
+        - g
+      default: GG
+      phenotypes:
+        G*:
+          colour: 
+            value: !!int 8
+        gg:
+          colour: 
+            value: !!int 1
+
+  - name: texture
+      alleles:
+        - R
+        - r
+      default: RR
+      phenotypes:
+        R*:
+          base_image:
+            value: Coloured_Shapes/Coloured_Circles.png
+        rr:
+          base_image:
+            value: Coloured_Shapes/Coloured_Crosses.png
+            
