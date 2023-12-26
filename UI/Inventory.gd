@@ -3,7 +3,7 @@ extends Control
 @onready var itemList = %ItemList
 @onready var ItemSlot = preload("res://UI/Common/ItemSlot.tscn")
 @onready var DeleteSlot = preload("res://UI/Common/DeleteSlot.tscn")
-var INVENTORY_SIZE: int = 11
+@export var INVENTORY_SIZE: int = 11
 @export var CONTAINS_DELETE: bool = true
 
 signal slot_clicked

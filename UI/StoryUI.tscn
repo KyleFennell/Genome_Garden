@@ -1,0 +1,61 @@
+[gd_scene load_steps=10 format=3 uid="uid://cfiy2hxedxtyk"]
+
+[ext_resource type="Script" path="res://UI/StoryUI.gd" id="1_yqs28"]
+[ext_resource type="StyleBox" uid="uid://bbnya0yydf4i2" path="res://Panel_Green.tres" id="2_aeulm"]
+[ext_resource type="StyleBox" uid="uid://ddpawkwbkxx4w" path="res://Panel_Light.tres" id="3_t82r1"]
+[ext_resource type="StyleBox" uid="uid://boyhwcuefkdjp" path="res://Panel.tres" id="4_wjkt4"]
+[ext_resource type="Script" path="res://UI/Breeder.gd" id="5_j1wht"]
+[ext_resource type="PackedScene" uid="uid://6vqdxjk0lq5g" path="res://UI/Preview/PreviewTab.tscn" id="6_o8ahc"]
+[ext_resource type="PackedScene" uid="uid://c4h56fb6ye0y4" path="res://UI/Identify/IdentifyTab.tscn" id="7_4aaot"]
+[ext_resource type="Script" path="res://UI/ContractsTab.gd" id="8_j4526"]
+[ext_resource type="PackedScene" uid="uid://cy46umdw25tb6" path="res://UI/Inventory.tscn" id="9_ub3km"]
+
+[node name="StoryUI" type="MarginContainer"]
+custom_minimum_size = Vector2(200, 200)
+offset_right = 100.0
+offset_bottom = 100.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_yqs28")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Tabs" type="TabContainer" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_colors/font_unselected_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+theme_override_styles/tab_selected = ExtResource("2_aeulm")
+theme_override_styles/tab_unselected = ExtResource("3_t82r1")
+theme_override_styles/panel = ExtResource("4_wjkt4")
+tab_alignment = 1
+
+[node name="Breed" type="VBoxContainer" parent="VBoxContainer/Tabs"]
+unique_name_in_owner = true
+layout_mode = 2
+script = ExtResource("5_j1wht")
+
+[node name="Preview" parent="VBoxContainer/Tabs" instance=ExtResource("6_o8ahc")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Identify" parent="VBoxContainer/Tabs" instance=ExtResource("7_4aaot")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Contracts" type="VBoxContainer" parent="VBoxContainer/Tabs"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+script = ExtResource("8_j4526")
+
+[node name="Inventory" parent="VBoxContainer" instance=ExtResource("9_ub3km")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_stretch_ratio = 2.0
+mouse_filter = 1
+INVENTORY_SIZE = 17

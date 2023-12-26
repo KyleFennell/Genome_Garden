@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://donqaq53lgvaf"]
+
+[ext_resource type="StyleBox" uid="uid://boyhwcuefkdjp" path="res://Panel.tres" id="1_d1dbp"]
+[ext_resource type="Script" path="res://UI/Breeding_Row/Contract_Row.gd" id="2_yx8q8"]
+
+[node name="Contract_Row" type="PanelContainer"]
+offset_right = 200.0
+offset_bottom = 200.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+theme_override_styles/panel = ExtResource("1_d1dbp")
+script = ExtResource("2_yx8q8")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1

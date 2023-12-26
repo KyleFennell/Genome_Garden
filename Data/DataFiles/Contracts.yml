@@ -1,5 +1,5 @@
-- id: pea_breeding
-  requiremenets:
+- name: pea_breeding
+  requirements:
     - kind: item
       species: pea
       genes:
@@ -10,14 +10,13 @@
       species: pea
       genes:
         colour_1: gg
-      quantity: 1
     - kind: contract
-      id: recessive
+      name: pea_recessive
     - kind: dialogue
       id: complete_dominance_1
 
-- id: pea_recessive
-  requiremenets:
+- name: pea_recessive
+  requirements:
     - kind: item
       species: pea
       genes:
@@ -28,20 +27,23 @@
       species: flower_1
       genes:
         dominant_red_yellow: Rr
-      quantity: 1
+    - kind: item
+      species: flower_1
+      genes:
+        dominant_red_yellow: Rr
     - kind: contract
-      id: pea_heterozygous
+      name: pea_heterozygous
     - kind: contract
-      id: tulip_codominance
+      name: tulip_codominance
     - kind: dialogue
       id: incomplete_dominance_1
     - kind: event
       id: enable_idenfitication
 
-- id: pea_heterozygous
+- name: pea_heterozygous
   requirements:
     - kind: item
-      species: pea
+      species: pea>
       genes:
         colour_1: Gg
       identified: !!bool true
@@ -50,14 +52,18 @@
       species: pea 
       genes:
         colour_1: GG
-        texture: rr
-      quantity: !!int 2
+      texture: rr
+    - kind: item
+      species: pea 
+      genes:
+        colour_1: GG
+      texture: rr
     - kind: contract
-      id: pea_phenotypes
+      name: pea_phenotypes
     - kind: dialogue
       id: multiple_genes
 
-- id: tulip_codominance
+- name: tulip_codominance
   requirements:
     - kind: item
       species: tulip
@@ -74,14 +80,13 @@
       species: tulip
       genes:
         colour_1: RR
-        pigment: pp
-      quanitty: !!int 1
+      pigment: pp
     - kind: dialogue
       id: epistasis
     - kind: contract
-      id: tulip_white
+      name: tulip_white
 
-- id: tulip_white
+- name: tulip_white
   requirements:
     - kind: item
       species: tulip
@@ -92,10 +97,9 @@
   rewards:
     - kind: item
       species: "chromatadil"
-      genes:
-      quantity: !!int 1
-    
-- id: pea_phenotypes
+      genes: {}
+  
+- name: pea_phenotypes
   requirements:
     - kind: item
       species: pea 
@@ -128,12 +132,15 @@
   rewards:
     - kind: dialogue
       id: floradex
+    - kind: EVENT
+      id: floradex_enabled
     - kind: pea
       id: pea_sequencing_1
 
-- id: pea_sequencing_1
+- name: pea_sequencing_1
   requirements:
-    - kind: floradex_sequence_count
+    - kind: floradex
+      action: sequence
       species: pea
       quantity: !!int 4
   rewards:

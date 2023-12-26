@@ -11,11 +11,11 @@ var hidden_alleles: Dictionary = {}
 
 func _init(data: Dictionary):
 	name = data["name"]
-	for gene in data["genome"]:
+	for gene in data.get("genome", {}):
 		genome[gene] = Database.Genes[gene]
-	for item in data["starting_inventory"]:
+	for item in data.get("starting_inventory", {}):
 		starting_inventory.append(Item.new(item, false, true))
-	for goal_item in data["goal"]:
+	for goal_item in data.get("goal", {}):
 		goal.append(GoalItem.new(goal_item))
 	for combo in data.get("hidden_combinations", []):
 		hidden_combinations.append(

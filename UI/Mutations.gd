@@ -2,8 +2,6 @@ extends VBoxContainer
 
 @onready var SecretRow = preload("res://UI/Breeding_Row/Secret_Row.tscn")
 
-
-
 func load_hidden_combinations(hidden_combinations):
 	for combo in hidden_combinations:
 		var row = SecretRow.instantiate()

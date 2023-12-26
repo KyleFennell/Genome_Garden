@@ -94,7 +94,7 @@
     '**':
       interactions:
         3_bit_colour_mixer:
-          - value: !!int 1
+          - value: !!int 0
 - name: 3_bit_yellow
   alleles:
     - 'Y'
@@ -103,11 +103,11 @@
     Y*:
       interactions:
         3_bit_colour_mixer:
-          - value: !!int 1
+          - value: !!int 2
     '**':
       interactions:
         3_bit_colour_mixer:
-          - value: !!int 1
+          - value: !!int 0
 - name: 3_bit_blue
   alleles:
     - B
@@ -116,11 +116,11 @@
     B*:
       interactions:
         3_bit_colour_mixer:
-          - value: !!int 1
+          - value: !!int 4
     '**':
       interactions:
         3_bit_colour_mixer:
-          - value: !!int 1
+          - value: !!int 0
 - name: 3_bit_red_strong
   alleles:
     - R
@@ -191,3 +191,30 @@
     r*:
       colour:
         value: !!int 3
+
+###################
+### Story Genes ###
+###################
+
+- name: colour_1
+  alleles: 
+    - G
+    - g
+  phenotypes:
+    G*:
+      colour:
+        value: !!int 8
+    gg:
+      colour:
+        value: !!int 1
+- name: texture
+  alleles:
+    - R
+    - r
+  phenotypes:
+    R*:
+      base_image:
+        value: Coloured_Circles
+    rr:
+      base_image:
+        value: Coloured_Crosses

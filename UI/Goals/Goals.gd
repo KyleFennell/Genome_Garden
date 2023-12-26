@@ -20,10 +20,8 @@ func load_goals(items: Array):
 		slot_instance.connect("gui_input", Helpers.slot_click_event.bind(slot_instance, auto_fill_goal))
 
 func on_goal_complete():
-	for child in itemList.get_children():
-		if child.item == null:
-			return
-	level_complete()
+	if itemList.get_children().all(func(slot): return slot.complete):
+		level_complete()
 
 func level_complete():
 	all_goals_complete.emit()

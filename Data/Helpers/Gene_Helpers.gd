@@ -220,6 +220,8 @@ static func generate_phenotype_percents(children: Array[_ChildChancePair]) -> Di
 
 static func is_hidden(child: Item) -> bool:
 	# if any allele in the child is hidden return true
+	if Globals.current_level == "Story":
+		return false
 	var hidden_alleles = Database.Levels[Globals.current_level].hidden_alleles
 	for gene in child.genes:
 		if hidden_alleles.has(gene):

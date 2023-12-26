@@ -3,13 +3,15 @@ extends Node
 var Levels = {}
 var Genes = {}
 var Interactions = {}
+var Contracts = {}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	load_data("Genes", Gene)
 	load_data("Interactions", Interaction)
 	load_data("Levels", Level)
-
+	load_data("Contracts", Contract)
+	
 func load_data(data_name, resource_type):
 	print(data_name)
 	var my_csharp_script = preload("res://Data/Singletons/YmlToJson.cs")

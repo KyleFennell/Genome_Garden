@@ -2,8 +2,9 @@ extends ItemSlot
 class_name GoalSlot
 
 var target_item = null
-var target_quantity = 1
-var current_quantity = 0
+var target_quantity: int = 1
+var current_quantity: int = 0
+var complete: bool = false
 @onready var incomplete_texture = preload("res://Resources/UI/Goal_Slot.png")
 @onready var complete_texture = preload("res://Resources/UI/Goal_Slot_Complete.png")
 @onready var TargetDisplay = %TargetDisplay
@@ -24,6 +25,7 @@ func set_item(item: Item) -> void:
 		if current_quantity >= target_quantity:
 			BackgroundTexture.texture = complete_texture
 			super.set_item(target_item)
+			complete = true
 			goal_complete.emit()
 		else:
 			super.set_item(null)
