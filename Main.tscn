@@ -1,18 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://sbaua26wbca"]
+[gd_scene load_steps=9 format=3 uid="uid://sbaua26wbca"]
 
 [ext_resource type="StyleBox" uid="uid://boyhwcuefkdjp" path="res://Panel.tres" id="1_prqu4"]
-[ext_resource type="PackedScene" uid="uid://uo5jmwg10vix" path="res://UI/Header_Bar.tscn" id="2_0ucvc"]
 [ext_resource type="Script" path="res://UI/UIRoot.gd" id="2_842ad"]
 [ext_resource type="PackedScene" uid="uid://hxenegbtvpvi" path="res://UI/MidStyledButton.tscn" id="3_2puuq"]
-[ext_resource type="PackedScene" uid="uid://b5fasbkcgoolp" path="res://UI/LevelUI.tscn" id="3_16cw8"]
-[ext_resource type="Script" path="res://LevelsContainer.gd" id="4_0sum1"]
-[ext_resource type="Script" path="res://UI/SelectUI.gd" id="5_cg6o2"]
-[ext_resource type="PackedScene" uid="uid://cfiy2hxedxtyk" path="res://UI/StoryUI.tscn" id="6_l025q"]
+[ext_resource type="PackedScene" uid="uid://cr7ewg0pc5j5b" path="res://UI/story_container.tscn" id="5_ltbis"]
 [ext_resource type="StyleBox" uid="uid://ddpawkwbkxx4w" path="res://Panel_Light.tres" id="6_w36n2"]
 [ext_resource type="Script" path="res://Tutorial.gd" id="7_32kts"]
 [ext_resource type="StyleBox" uid="uid://bwnyx0lv1gftl" path="res://Spotlight_Panel.tres" id="7_lj0bl"]
 [ext_resource type="PackedScene" uid="uid://bwx6fag8kd0rw" path="res://UI/NotificationModal.tscn" id="7_myx6d"]
-[ext_resource type="Script" path="res://StoryContainer.gd" id="8_3una4"]
 
 [node name="Main" type="Node2D"]
 
@@ -42,14 +37,6 @@ layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
 
-[node name="MarginContainer" type="MarginContainer" parent="UIRoot/MainMenu/VBoxContainer"]
-layout_mode = 2
-
-[node name="LevelsButton" parent="UIRoot/MainMenu/VBoxContainer/MarginContainer" instance=ExtResource("3_2puuq")]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Levels"
-
 [node name="MarginContainer2" type="MarginContainer" parent="UIRoot/MainMenu/VBoxContainer"]
 layout_mode = 2
 
@@ -58,52 +45,9 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "Story"
 
-[node name="LevelsContainer" type="VBoxContainer" parent="UIRoot"]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-script = ExtResource("4_0sum1")
-
-[node name="HeaderBar" parent="UIRoot/LevelsContainer" instance=ExtResource("2_0ucvc")]
+[node name="StoryContainer" parent="UIRoot" instance=ExtResource("5_ltbis")]
 unique_name_in_owner = true
 layout_mode = 2
-
-[node name="HSeparator" type="HSeparator" parent="UIRoot/LevelsContainer"]
-layout_mode = 2
-
-[node name="LevelUI" parent="UIRoot/LevelsContainer" instance=ExtResource("3_16cw8")]
-layout_mode = 2
-size_flags_stretch_ratio = 7.0
-
-[node name="SelectUI" type="ScrollContainer" parent="UIRoot/LevelsContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_vertical = 3
-size_flags_stretch_ratio = 4.0
-script = ExtResource("5_cg6o2")
-
-[node name="LevelContainer" type="VBoxContainer" parent="UIRoot/LevelsContainer/SelectUI"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="StoryContainer" type="VBoxContainer" parent="UIRoot"]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-script = ExtResource("8_3una4")
-
-[node name="HeaderBar" parent="UIRoot/StoryContainer" instance=ExtResource("2_0ucvc")]
-layout_mode = 2
-
-[node name="HSeparator" type="HSeparator" parent="UIRoot/StoryContainer"]
-layout_mode = 2
-
-[node name="StoryUI" parent="UIRoot/StoryContainer" instance=ExtResource("6_l025q")]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_stretch_ratio = 7.0
 
 [node name="Greyout" type="MarginContainer" parent="UIRoot"]
 unique_name_in_owner = true

@@ -42,7 +42,7 @@ func _calculate_identifications() -> void:
 	
 	var phenotype_counts = {}
 	for gene in instances_for_genes:
-		var phenotype = GeneHelpers.get_phenotype(gene)
+		var phenotype = GeneHelpers.get_phenotype(null, gene)
 		if not str(phenotype) in phenotype_counts:
 			phenotype_counts[str(phenotype)] = 0
 		else:

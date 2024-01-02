@@ -1,16 +1,16 @@
 extends Control
 
-@onready var LevelsButton = %LevelsButton
+#@onready var LevelsButton = %LevelsButton
 @onready var StoryButton = %StoryButton
-@onready var LevelsContainer = %LevelsContainer
+#@onready var LevelsContainer = %LevelsContainer
 @onready var MainMenu = %MainMenu
 @onready var StoryContainer = %StoryContainer
 
 func _ready():
-	LevelsButton.button_up.connect(func(): 
-		MainMenu.hide()
-		LevelsContainer.show()
-	)
+	#LevelsButton.button_up.connect(func(): 
+		#MainMenu.hide()
+		#LevelsContainer.show()
+	#)
 	StoryButton.button_up.connect(func():
 		MainMenu.hide()
 		StoryContainer.show()

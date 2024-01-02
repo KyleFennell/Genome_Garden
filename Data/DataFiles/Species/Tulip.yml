@@ -1,4 +1,4 @@
-name: flower_1
+name: tulip
 modules:
   - name: base_texture
     kind: AtlasTexture

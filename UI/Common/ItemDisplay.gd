@@ -6,7 +6,9 @@ extends Container
 @onready var InnerTexture = %InnerTexture
 @onready var HiddenItem = %HiddenItem
 
-var item = null
+@onready var ModifiableChildren = %ModifiableChildren
+
+var item: Item = null
 
 func _ready():
 	MainTexture.texture = MainTexture.texture.duplicate()
@@ -17,42 +19,47 @@ func _ready():
 	
 func update_item_display() -> void:
 	# update the textures and tags based on self.item
+	for child in ModifiableChildren.get_children():
+		ModifiableChildren.remove_child(child)
+	
+	
 	if self.item == null:
 		hide()
 		Identification.hide()
 		StartingItemTag.hide()
-		InnerTexture.hide()
-	else:
-		show()
+		#InnerTexture.hide()
+		return
+	
+	show()
+	
 		
-		if GeneHelpers.is_hidden(item):
-			HiddenItem.show()
-			return
-		HiddenItem.hide()
 		
-		var phenotypes = GeneHelpers.get_phenotype(item.genes)
-		if item is GoalItem and item.properties:
-			phenotypes = item.properties
-		var colour = null
-		if phenotypes.has("colour"):
-			colour = phenotypes["colour"]["value"]
-		MainTexture.texture.set_colour(colour if colour != null else 4)
-			
-		var inner_colour = null
-		if phenotypes.has("colour_inner"):
-			inner_colour = phenotypes["colour_inner"]["value"]
-			if inner_colour != null:
-				InnerTexture.show()
-				InnerTexture.texture.set_colour(inner_colour if inner_colour != null else 4)
+	## undiscovered seed
+	#if GeneHelpers.is_hidden(item):
+		#HiddenItem.show()
+		#return
+	#HiddenItem.hide()
+	#
+	## 
+	var phenotypes = GeneHelpers.get_phenotype(item.species, item.genes)
+	if item is GoalItem and item.properties:
+		phenotypes = item.properties
 		
-		if item.is_starting_item:
-			StartingItemTag.show()
+	var modules = {}
+	for module in self.item.modules:
+		var effects = phenotypes.get(module.name, {})
+		module.process_attributes(effects)
+		module.create_on(ModifiableChildren)
 		
-		if item.identified:
-			var raw_genotype = GeneHelpers.get_raw_genotype(item.genes)
-			var id = Database.Levels[Globals.current_level].identifications[raw_genotype]
-			Identification.show()
-			Identification.texture.set_colour(id)
+	#if item.is_starting_item:
+		#StartingItemTag.show()
+	#
+	if item.identified:
+		var raw_genotype = GeneHelpers.get_raw_genotype(item.genes)
+		#var id = Database.Levels[Globals.current_level].identifications[raw_genotype]
+		var id = item.species.identifications[raw_genotype]
+		Identification.show()
+		Identification.texture.set_colour(id)
 
 func set_item(_item: Item) -> void:
 	self.item = _item

@@ -24,7 +24,7 @@ func equals(other: Item, identification_relevant: bool=false) -> bool:
 	if self.genes:
 		return GeneHelpers.genes_match(other.genes, self.genes)
 	if self.properties:
-		return GeneHelpers.get_phenotype(other.genes) == self.properties
+		return GeneHelpers.get_phenotype(other.species, other.genes) == self.properties
 	if self.match_phenotype:
-		return GeneHelpers.get_phenotype(other.genes) == GeneHelpers.get_phenotype(self.genes)
+		return GeneHelpers.get_phenotype(other.species, other.genes) == GeneHelpers.get_phenotype(self.species, self.genes)
 	return false

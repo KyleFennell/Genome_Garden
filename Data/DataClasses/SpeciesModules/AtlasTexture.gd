@@ -1,0 +1,37 @@
+extends SpeciesModule
+
+const type = "TextureAtlas"
+var atlas: AtlasTexture = preload("res://Resources/SubTexture.gd").new()
+var texture: Texture
+var width: int = 4
+var height: int = 4
+
+func _init(data: Dictionary, modules: Array):
+	super._init(data, modules)
+	var params = data.get("params", {})
+	self.texture = load(params.get("path"))
+	self.width = params.get("width", 4)
+	self.height = params.get("height", 4)
+
+func create_on(root: Node):
+	self.node = TextureRect.new()
+	self.atlas.atlas = texture
+	self.atlas.h_images = height
+	self.atlas.v_images = width
+	self.node.set_texture(self.atlas)
+	super.create_on(root)
+
+func set_sub_texture_value(value):
+	self.atlas.set_colour(value)
+
+func process_attributes(dict: Dictionary):
+	for attr in dict:
+		var value = dict[attr]
+		match attr:
+			"sub_texture": set_sub_texture_value(value)
+			"texture_path": 
+				texture = load(value)
+				self.atlas.atlas = texture
+
+func update_node():
+	self.node.set_texture(self.atlas)

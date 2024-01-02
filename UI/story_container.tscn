@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cr7ewg0pc5j5b"]
+
+[ext_resource type="Script" path="res://StoryContainer.gd" id="1_shedh"]
+[ext_resource type="PackedScene" uid="uid://uo5jmwg10vix" path="res://UI/Header_Bar.tscn" id="2_uvvv1"]
+[ext_resource type="PackedScene" uid="uid://cfiy2hxedxtyk" path="res://UI/StoryUI.tscn" id="3_23mwd"]
+
+[node name="StoryContainer" type="VBoxContainer"]
+visible = false
+script = ExtResource("1_shedh")
+
+[node name="HeaderBar" parent="." instance=ExtResource("2_uvvv1")]
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="."]
+layout_mode = 2
+
+[node name="StoryUI" parent="." instance=ExtResource("3_23mwd")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_stretch_ratio = 7.0

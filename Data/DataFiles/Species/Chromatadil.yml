@@ -1,4 +1,4 @@
-name: pea
+name: chromatadil
 modules:
   - name: base_texture
     kind: AtlasTexture

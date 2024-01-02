@@ -3,6 +3,7 @@ class_name Gene
 
 var name: String
 var alleles: Array[String]
+var default: String
 var phenotypes: Dictionary
 var tags: Array[String]
 var combinations: Array[String]
@@ -10,6 +11,7 @@ var combinations: Array[String]
 func _init(gene: Dictionary):
 	name = gene.get("name")
 	alleles.assign(gene.get("alleles"))
+	default = gene.get("default", alleles[0]+alleles[0])
 	phenotypes = gene.get("phenotypes")
 	tags.assign(gene.get("tags", []))
 	_generate_combinations()

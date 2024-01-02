@@ -1,14 +1,14 @@
 extends Node
 class_name GeneHelpers
 
-static func get_phenotype(genes):
+static func get_phenotype(species: Species, genes: Dictionary):
 	var matching_phenotypes = {}
 #	print("genes: ", genes)
 	# get phenotypes for genes
 	for gene_id in genes:
 		var sections = gene_id.split(":")
 		var gene = sections[0]
-		var phenotypes = Database.Genes[gene].phenotypes
+		var phenotypes = species.genome[gene].phenotypes
 		for phenotype in phenotypes:
 			var matches_phenotype = true
 			for i in genes[gene].length():
@@ -18,7 +18,7 @@ static func get_phenotype(genes):
 					matches_phenotype = false
 					break;
 			if matches_phenotype:
-				var tags = Database.Genes[gene].tags if Database.Genes[gene].tags != [] else ["no_tag"]
+				var tags = species.genome[gene].tags if species.genome[gene].tags != [] else ["no_tag"]
 				for tag in tags:
 					if not matching_phenotypes.has(tag):
 						matching_phenotypes[tag] = {"interactions": {}}
@@ -32,7 +32,11 @@ static func get_phenotype(genes):
 									else:
 										matching_phenotypes[tag][property][interaction] = value["value"]
 						else:
-							matching_phenotypes[tag][property] = phenotypes[phenotype][property]
+							if not matching_phenotypes[tag].has(property):
+								matching_phenotypes[tag][property] = (phenotypes[phenotype][property])
+							else:
+								matching_phenotypes[tag][property].merge(phenotypes[phenotype][property])
+				break;
 #	print("complete phenotype matches: ", matching_phenotypes)
 
 	# Handel interactions
@@ -85,18 +89,19 @@ static func _generate_genetic_child(p1: Item, p2: Item) -> Item:
 	var child = {"genes": {}}
 	for gene in p1.genes:
 		var new_gene = p1.genes[gene][randi()%2] + p2.genes[gene][randi()%2]
-		child["genes"][gene] = sort_gene(new_gene, Database.Genes[gene].alleles)
+		child["genes"][gene] = sort_gene(new_gene, p1.species.genome[gene].alleles)
+		child["species"] = p1.species.name
 	return Item.new(child)
 
 static func _generate_combo_child(p1: Item, p2: Item) -> Item:
 	# attempts to generate a mutated child.
 	# returns null if no mutation is generated
 	var possible_combos = []
-	var hidden_combinations = Database.Levels[Globals.current_level].hidden_combinations
+	#var hidden_combinations = Database.Levels[Globals.current_level].hidden_combinations
 	# get all the valid combos and their chances
-	for combo in hidden_combinations:
-		if combo.check_match(p1, p2):
-			possible_combos.append(combo)
+	#for combo in hidden_combinations:
+		#if combo.check_match(p1, p2):
+			#possible_combos.append(combo)
 	# pick a random mutation from the list respecting their probabilities
 	var remaining_chance = randf()
 	for combo in possible_combos:
@@ -136,17 +141,18 @@ class _ChildChancePair:
 
 static func generate_children_with_percentages(p1: Item, p2: Item) -> Array[_ChildChancePair]:
 	# generates all possible children for the 
-	var combo_children = _get_combo_children(p1, p2)
-	var remaining_chance = combo_children.reduce(func(accum, c: _ChildChancePair): return accum - c.chance, 1.0)
+	#var combo_children = _get_combo_children(p1, p2)
+	#var remaining_chance = combo_children.reduce(func(accum, c: _ChildChancePair): return accum - c.chance, 1.0)
+	var remaining_chance = 1.0
 	var potential_genes = _generate_potential_genes(p1, p2)
-	var children = _generate_children_from_genes(potential_genes)
+	var children = _generate_children_from_genes(potential_genes, p1.species)
 	var children_items: Array[_ChildChancePair]
 	children_items.assign(_convert_children(children).map(
 		func(child): 
 			child.chance *= remaining_chance
 			return child
 	))
-	children_items.append_array(combo_children)
+	#children_items.append_array(combo_children)
 	return children_items
 
 static func _get_combo_children(p1, p2) ->Array[_ChildChancePair]:
@@ -165,15 +171,15 @@ static func _generate_potential_genes(p1: Item, p2:Item) -> Dictionary:
 		potential_genes[gene] = {}
 		for i in [[0, 0], [0, 1], [1, 0], [1, 1]]:
 			var new_gene_value = p1.genes[gene][i[0]] + p2.genes[gene][i[1]]
-			new_gene_value = sort_gene(new_gene_value, Database.Genes[gene].alleles)
+			new_gene_value = sort_gene(new_gene_value, p1.species.genome[gene].alleles)
 			if potential_genes[gene].has(new_gene_value):
 				potential_genes[gene][new_gene_value] += 0.25
 			else:
 				potential_genes[gene][new_gene_value] = 0.25
 	return potential_genes
 
-static func _generate_children_from_genes(potential_genes: Dictionary) -> Array[Dictionary]:
-	var children = [{"child": { "genes": {}}, "chance": 1}]
+static func _generate_children_from_genes(potential_genes: Dictionary, species: Species) -> Array[Dictionary]:
+	var children = [{"child": { "genes": {}, "species": species.name}, "chance": 1}]
 	for gene in potential_genes:
 		var next_children: Array[Dictionary] = []
 		for child in children:
@@ -205,7 +211,7 @@ static func generate_phenotype_percents(children: Array[_ChildChancePair]) -> Di
 	for child in children:
 		if is_hidden(child["child"]):
 			continue
-		var properties = get_phenotype(child["child"].genes)
+		var properties = get_phenotype(child["child"].species, child["child"].genes)
 		var phenotype = ""
 		for property in properties:
 			phenotype += str(properties[property])

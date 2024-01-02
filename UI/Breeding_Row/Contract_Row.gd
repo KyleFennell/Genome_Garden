@@ -28,8 +28,7 @@ func _add_item_requirement_children(item_requirements):
 		add_element(req_slot)
 		req_slot.set_goal(requirement)
 		req_slot.goal_complete.connect(_requirement_fulfilled)
-		
-		
+
 func _add_item_reward_children(item_rewards):
 	for reward in item_rewards:
 		var req_slot = ItemSlot.instantiate()

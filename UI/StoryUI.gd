@@ -25,7 +25,7 @@ func _ready():
 	Inventory.connect("slot_clicked", on_inventory_slot_clicked)
 
 func start_story_mode():
-	Database.Levels["Story"] = Level.new({"name": "Story", "genome": ["colour_1"]})
+	#Database.Levels["Story"] = Level.new({"name": "Story", "genome": ["colour_1"]})
 	Globals.current_level = "Story"
 	var contract_values: Array[Contract]
 	contract_values.assign(Database.Contracts.values())
@@ -35,12 +35,14 @@ func start_story_mode():
 		Item.new({
 			"genes": {
 				"colour_1": "GG"
-			}
+			},
+			"species": "pea"
 		}),
 		Item.new({
 			"genes": {
 				"colour_1": "GG"
-			}
+			},
+			"species": "pea"
 		})
 	])
 	

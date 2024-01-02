@@ -24,13 +24,13 @@
       quantity: !!int 5
   rewards:
     - kind: item
-      species: flower_1
+      species: tulip
       genes:
-        dominant_red_yellow: Rr
+        colour_1: Ry
     - kind: item
-      species: flower_1
+      species: tulip
       genes:
-        dominant_red_yellow: Rr
+        colour_1: Ry
     - kind: contract
       name: pea_heterozygous
     - kind: contract
@@ -43,7 +43,7 @@
 - name: pea_heterozygous
   requirements:
     - kind: item
-      species: pea>
+      species: pea
       genes:
         colour_1: Gg
       identified: !!bool true
@@ -73,7 +73,7 @@
     - kind: item
       species: tulip
       genes:
-        colour_1: rr
+        colour_1: yy
       quantity: !!int 5
   rewards:
     - kind: item
@@ -134,8 +134,8 @@
       id: floradex
     - kind: EVENT
       id: floradex_enabled
-    - kind: pea
-      id: pea_sequencing_1
+    - kind: contract
+      name: pea_sequencing_1
 
 - name: pea_sequencing_1
   requirements:
