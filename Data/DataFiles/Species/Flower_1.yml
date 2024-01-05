@@ -15,17 +15,21 @@ genome:
     default: RR
     phenotypes:
       Ry:
-        base_texture: 
-          sub_texture: !!int 2
+        modules:
+          base_texture: 
+            sub_texture: !!int 2
       R*:
-        base_texture: 
-          sub_texture: !!int 0
+        modules:
+          base_texture: 
+            sub_texture: !!int 0
       y*:
-        base_texture:
-          sub_texture: !!int 1
+        modules:
+          base_texture:
+            sub_texture: !!int 1
       bb:
-        base_texture:
-          sub_texture: !!int 4 
+        modules:
+          base_texture:
+            sub_texture: !!int 4 
 
   - name: pigment
     alleles:
@@ -34,6 +38,7 @@ genome:
     default: PP
     phenotypes:
       pp:
-        base_texture:
-          priority: !!int 1
-          sub_texture: !!int 3  
+        modules:
+          base_texture:
+            priority: !!int 1
+            sub_texture: !!int 3  

@@ -3,82 +3,27 @@ class_name GeneHelpers
 
 static func get_phenotype(species: Species, genes: Dictionary):
 	var matching_phenotypes = {}
-#	print("genes: ", genes)
+
 	# get phenotypes for genes
-	for gene_id in genes:
-		var sections = gene_id.split(":")
-		var gene = sections[0]
+	for gene in genes:
 		var phenotypes = species.genome[gene].phenotypes
 		for phenotype in phenotypes:
-			var matches_phenotype = true
-			for i in genes[gene].length():
-				if phenotype[i] == "*":
-					continue
-				elif phenotype[i] != genes[gene][i]:
-					matches_phenotype = false
-					break;
-			if matches_phenotype:
-				var tags = species.genome[gene].tags if species.genome[gene].tags != [] else ["no_tag"]
-				for tag in tags:
-					if not matching_phenotypes.has(tag):
-						matching_phenotypes[tag] = {"interactions": {}}
-					for property in phenotypes[phenotype]:
-#						print(property, " ", phenotypes[phenotype])
-						if property == "interactions":
-							for interaction in phenotypes[phenotype][property]:
-								for value in phenotypes[phenotype][property][interaction]:
-									if matching_phenotypes[tag][property].has(interaction):
-										matching_phenotypes[tag][property][interaction] += value["value"]
-									else:
-										matching_phenotypes[tag][property][interaction] = value["value"]
-						else:
-							if not matching_phenotypes[tag].has(property):
-								matching_phenotypes[tag][property] = (phenotypes[phenotype][property])
-							else:
-								matching_phenotypes[tag][property].merge(phenotypes[phenotype][property])
+			if alleles_match(phenotype, genes[gene]):
+				for property in phenotypes[phenotype]:
+					matching_phenotypes.merge(phenotypes[phenotype])
 				break;
 #	print("complete phenotype matches: ", matching_phenotypes)
 
 	# Handel interactions
-	var interactions = {}
-	for tag in matching_phenotypes:
-		for interaction_name in matching_phenotypes[tag]["interactions"]:
-			var interaction_res = Database.Interactions[interaction_name]
-			interactions[interaction_name] = interaction_res.get_properties(matching_phenotypes[tag]["interactions"][interaction_name])
+	#var interactions = {}
+	#for tag in matching_phenotypes:
+		#for interaction_name in matching_phenotypes[tag]["interactions"]:
+			#var interaction_res = Database.Interactions[interaction_name]
+			#interactions[interaction_name] = interaction_res.get_properties(matching_phenotypes[tag]["interactions"][interaction_name])
 #	print("interactions: ", interactions)
 	
-	# Handel supressions
-	var supressing = true
-	var supressed_tags = []
-	while supressing:
-		supressing = false
-		for tag in matching_phenotypes:
-			if matching_phenotypes[tag].has("supresses"):
-				for supressed_tag in matching_phenotypes[tag]["supresses"]:
-					if not matching_phenotypes.has(supressed_tag) or supressed_tag in supressed_tags:
-						continue
-					supressed_tags.append(supressed_tag)
-#	print("spressions: ", supressed_tags)
-
 	# Colapse tags
-	var phenotype_properties = {}
-	for tag in matching_phenotypes:
-		if tag in supressed_tags:
-			continue
-		for property in matching_phenotypes[tag]:
-			if ("@"+property) in supressed_tags:
-				continue
-			phenotype_properties[property] = matching_phenotypes[tag][property]
-	for interaction in interactions:
-		if ("$"+interaction) in supressed_tags:
-			continue
-		for property in interactions[interaction]:
-			if ("@"+property) in supressed_tags:
-				continue
-			phenotype_properties[property] = interactions[interaction][property]
-#	print("phenotype properties: ", phenotype_properties, "\n")
-	phenotype_properties.erase("interactions")
-	return phenotype_properties
+	return matching_phenotypes
 
 static func generate_child(p1: Item, p2: Item)-> Item:
 	#generates a random child from two parents mutations included
@@ -255,13 +200,15 @@ static func genes_match(g1: Dictionary, g2: Dictionary) -> bool:
 	for gene in g1:
 		if not g2.has(gene):
 			return false
-		for i in g1[gene].length():
-			if g1[gene][i] == "*":
-				continue
-			if g2[gene][i] == "*":
-				continue
-			if g1[gene][i] != g2[gene][i]:
-				return false
+		if not alleles_match(g1[gene], g2[gene]):
+			return false
+	return true
+
+static func alleles_match(a1: String, a2: String) -> bool:
+	for i in a1.length(): 
+		if a1[i] == "*" or a2[i] == "*" or a1[i] == a2[i]:
+			continue
+		return false
 	return true
 
 static func get_raw_genotype(genes) -> String:

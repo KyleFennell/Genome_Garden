@@ -47,9 +47,9 @@ func update_item_display() -> void:
 		
 	var modules = {}
 	for module in self.item.modules:
-		var effects = phenotypes.get(module.name, {})
-		module.process_attributes(effects)
+		var effects = phenotypes.get("modules", {}).get(module.name, {})
 		module.create_on(ModifiableChildren)
+		module.process_attributes(effects)
 		
 	#if item.is_starting_item:
 		#StartingItemTag.show()

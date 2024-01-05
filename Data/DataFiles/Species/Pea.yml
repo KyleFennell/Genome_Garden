@@ -6,6 +6,7 @@ modules:
       path: res://Resources/Coloured_Shapes/Coloured_Circles.png
       width: 4
       height: 4
+    
 genome:
   - name: colour_1
     alleles:
@@ -14,11 +15,13 @@ genome:
     default: GG
     phenotypes:
       G*:
-        base_texture: 
-          sub_texture: !!int 8
+        modules:
+          base_texture: 
+            sub_texture: !!int 8
       gg:
-        base_texture: 
-          sub_texture: !!int 1
+        modules:
+          base_texture: 
+            sub_texture: !!int 1
 
   - name: texture
     alleles:
@@ -27,8 +30,10 @@ genome:
     default: RR
     phenotypes:
       R*:
-        base_texture:
-          texture_path: res://Resources/Coloured_Shapes/Coloured_Circles.png
+        modules:
+          base_texture:
+            texture_path: res://Resources/Coloured_Shapes/Coloured_Circles.png
       rr:
-        base_texture:
-          texture_path: res://Resources/Coloured_Shapes/Coloured_Crosses.png
+        modules:
+          base_texture:
+            texture_path: res://Resources/Coloured_Shapes/Coloured_Crosses.png

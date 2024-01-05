@@ -9,7 +9,7 @@ var identifications: Dictionary = {}
 var discovered: Dictionary = {}
 
 func _init(data: Dictionary):
-	if not name in data:
+	if not "name" in data:
 		print("Error: couldn't find name of species in ", data)
 	self.name = data.get("name")
 	for gene in data.get("genome", []):

@@ -25,7 +25,7 @@ func on_gui_input(event: InputEvent, slot: ItemSlot, slot_signal: Signal) -> voi
 func load_inventory(items: Array) -> void:
 	if items.size() < INVENTORY_SIZE:
 		for i in items.size():
-			items[i].is_starting_item = true
+			#items[i].is_starting_item = true
 			var inventory_slot = itemList.get_child(i)
 			inventory_slot.set_item(items[i])
 	else:
