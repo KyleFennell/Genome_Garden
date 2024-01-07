@@ -1,15 +1,18 @@
 extends Resource
 class_name Interaction
 
-var default: Dictionary = {}
-var values: Dictionary = {}
-var name: String = ""
+var requirements: Array[String] = []
+var results: Dictionary = {}
 
 func _init(dict):
-	name = dict["name"]
-	default = dict["default"]
-	values = dict.get("values", {})
+	requirements.assign(dict["requirements"])
+	results = dict["results"]
 
-func get_properties(value) -> Dictionary:
-	value = str(value)
-	return values[value] if value in values else default
+func process_interaction(interactions) -> Dictionary:
+	for req in requirements:
+		if req[0] == "_" and not req.substr(1) in interactions:
+			continue
+		if req in interactions:
+			continue
+		return {}
+	return results.duplicate(true)

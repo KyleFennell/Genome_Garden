@@ -47,6 +47,6 @@ func _calculate_identifications() -> void:
 			phenotype_counts[str(phenotype)] = 0
 		else:
 			phenotype_counts[str(phenotype)] += 1
-		var raw_genotype = GeneHelpers.get_raw_genotype(gene)
+		var raw_genotype = GeneHelpers.get_raw_genotype(null, gene)
 		identifications[raw_genotype] = phenotype_counts[str(phenotype)]
 #	print("IDENTIFICATIONS: ", name, " ", identifications)

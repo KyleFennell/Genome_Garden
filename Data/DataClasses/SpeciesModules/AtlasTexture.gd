@@ -16,7 +16,7 @@ func _init(data: Dictionary, modules: Array):
 	self.height = params.get("height", 4)
 
 func create_on(root: Node):
-	self.node = TextureRect.new()
+	self.node = TextureRect.new()	
 	self.atlas.atlas = texture
 	self.atlas.h_images = height
 	self.atlas.v_images = width
@@ -35,6 +35,11 @@ func process_attributes(dict: Dictionary):
 			"texture_path": 
 				texture = load(value)
 				self.atlas.atlas = texture
+			"hidden":
+				if value:
+					self.node.hide()
+				else:
+					self.node.show()
 
 func update_node():
 	self.node.set_texture(self.atlas)

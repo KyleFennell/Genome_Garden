@@ -24,29 +24,29 @@ func process_attributes(dict: Dictionary):
 				if value == "hsv":
 					shader.set_shader_parameter("HSV", true)
 			"colour":
-				shader.set_shader_parameter("Colour", 
-					Vector4(
-						value.get("r", 1),
-						value.get("g", 1),
-						value.get("b", 1),
-						value.get("a", 1)
+				var colour = Vector4(
+						value.get("r", 1.0),
+						value.get("g", 1.0),
+						value.get("b", 1.0),
+						value.get("a", 1.0)
 					)
-				)
+				shader.set_shader_parameter("Colour", colour)
+				print("set shader colour: ", colour)
 			"r":
-				var current_colour: Color = shader.get_shader_parameter("Colour")
-				current_colour.r = value
+				var current_colour: Vector4 = shader.get_shader_parameter("Colour")
+				current_colour.x = value
 				shader.set_shader_parameter("Colour", current_colour)
 			"g":
-				var current_colour: Color = shader.get_shader_parameter("Colour")
-				current_colour.g = value
+				var current_colour: Vector4 = shader.get_shader_parameter("Colour")
+				current_colour.y = value
 				shader.set_shader_parameter("Colour", current_colour)
 			"b":
-				var current_colour: Color = shader.get_shader_parameter("Colour")
-				current_colour.b = value
+				var current_colour: Vector4 = shader.get_shader_parameter("Colour")
+				current_colour.z = value
 				shader.set_shader_parameter("Colour", current_colour)
 			"a":
-				var current_colour: Color = shader.get_shader_parameter("Colour")
-				current_colour.a = value
+				var current_colour: Vector4 = shader.get_shader_parameter("Colour")
+				current_colour.w = value
 				shader.set_shader_parameter("Colour", current_colour)
 
 func update_node():

@@ -1,0 +1,13 @@
+[gd_resource type="AtlasTexture" load_steps=3 format=3 uid="uid://rhempuko4g4p"]
+
+[ext_resource type="Texture2D" uid="uid://cjygusvrk3ojq" path="res://Resources/Coloured_Shapes/identifications.png" id="1_0s51f"]
+[ext_resource type="Script" path="res://Resources/SubTexture.gd" id="2_fakdh"]
+
+[resource]
+atlas = ExtResource("1_0s51f")
+region = Rect2(0, 0, 16, 16)
+script = ExtResource("2_fakdh")
+h_images = 8
+v_images = 8
+sub_width = 16
+sub_height = 16

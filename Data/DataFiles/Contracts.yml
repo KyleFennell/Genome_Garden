@@ -4,7 +4,7 @@
       species: pea
       genes:
         colour_1: GG
-      quantity: !!int 5
+      quantity: !!int 1
   rewards:
     - kind: item
       species: pea
@@ -21,16 +21,16 @@
       species: pea
       genes:
         colour_1: gg
-      quantity: !!int 5
+      quantity: !!int 1
   rewards:
     - kind: item
       species: tulip
       genes:
-        colour_1: Ry
+        colour_1: RR
     - kind: item
       species: tulip
       genes:
-        colour_1: Ry
+        colour_1: yy
     - kind: contract
       name: pea_heterozygous
     - kind: contract
@@ -46,18 +46,14 @@
       species: pea
       genes:
         colour_1: Gg
+      quantity: !!int 1
       identified: !!bool true
   rewards:
     - kind: item
       species: pea 
       genes:
         colour_1: GG
-      texture: rr
-    - kind: item
-      species: pea 
-      genes:
-        colour_1: GG
-      texture: rr
+        texture: rr
     - kind: contract
       name: pea_phenotypes
     - kind: dialogue
@@ -69,18 +65,18 @@
       species: tulip
       genes:
         colour_1: RR
-      quantity: !!int 5
+      quantity: !!int 1
     - kind: item
       species: tulip
       genes:
         colour_1: yy
-      quantity: !!int 5
+      quantity: !!int 1
   rewards:
     - kind: item
       species: tulip
       genes:
         colour_1: RR
-      pigment: pp
+        pigment: pp
     - kind: dialogue
       id: epistasis
     - kind: contract
@@ -93,11 +89,14 @@
       genes:
         colour_1: "**"
         pigment: pp
-      quantity: !!int 15
+      quantity: !!int 1
   rewards:
     - kind: item
-      species: "chromatadil"
-      genes: {}
+      species: tulip
+      genes: 
+        colour_1: Rb
+        trim: TT
+        trim_saturation: HL
   
 - name: pea_phenotypes
   requirements:

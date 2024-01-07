@@ -1,196 +1,196 @@
 - name: dominant_red_yellow
   alleles:
-    - R
-    - r
+	- R
+	- r
   phenotypes:
-    R*:
-      colour:
-        value: !!int 0
-    r*:
-      colour:
-        value: !!int 1
+	R*:
+	  colour:
+		value: !!int 0
+	r*:
+	  colour:
+		value: !!int 1
 - name: dominant_red_yellow_inner
   alleles:
-    - R
-    - r
+	- R
+	- r
   phenotypes:
-    R*:
-      colour_inner:
-        value: !!int 0
-    r*:
-      colour_inner:
-        value: !!int 1
+	R*:
+	  colour_inner:
+		value: !!int 0
+	r*:
+	  colour_inner:
+		value: !!int 1
 - name: pigment
   alleles:
-    - P
-    - p
+	- P
+	- p
   phenotypes:
-    p*:
-      interactions:
-        supresses_colour:
-          - value: !!int 1
+	p*:
+	  interactions:
+		supresses_colour:
+		  - value: !!int 1
 - name: co_dominant_red_yellow
   alleles:
-    - R
-    - 'Y'
+	- R
+	- 'Y'
   phenotypes:
-    RR:
-      colour:
-        value: !!int 0
-    RY:
-      colour:
-        value: !!int 6
-    YY:
-      colour:
-        value: !!int 1
+	RR:
+	  colour:
+		value: !!int 0
+	RY:
+	  colour:
+		value: !!int 6
+	YY:
+	  colour:
+		value: !!int 1
 - name: dominant_red_yellow_blue
   alleles:
-    - R
-    - 'y'
-    - b
+	- R
+	- 'y'
+	- b
   phenotypes:
-    R*:
-      colour:
-        value: !!int 0
-    y*:
-      colour:
-        value: !!int 1
-    b*:
-      colour:
-        value: !!int 2
+	R*:
+	  colour:
+		value: !!int 0
+	y*:
+	  colour:
+		value: !!int 1
+	b*:
+	  colour:
+		value: !!int 2
 - name: half_red_a
   alleles:
-    - R
-    - r
+	- R
+	- r
   phenotypes:
-    RR:
-      interactions:
-        half_red:
-          - value: !!int 1
-    '**':
-      colour:
-        value: !!int 4
+	RR:
+	  interactions:
+		half_red:
+		  - value: !!int 1
+	'**':
+	  colour:
+		value: !!int 4
 - name: half_red_b
   alleles:
-    - R
-    - r
+	- R
+	- r
   phenotypes:
-    RR:
-      interactions:
-        half_red:
-          - value: !!int 1
-    '**':
-      colour:
-        value: !!int 4
+	RR:
+	  interactions:
+		half_red:
+		  - value: !!int 1
+	'**':
+	  colour:
+		value: !!int 4
 - name: 3_bit_red
   alleles:
-    - R
-    - r
+	- R
+	- r
   phenotypes:
-    R*:
-      interactions:
-        3_bit_colour_mixer:
-          - value: !!int 1
-    '**':
-      interactions:
-        3_bit_colour_mixer:
-          - value: !!int 0
+	R*:
+	  interactions:
+		3_bit_colour_mixer:
+		  - value: !!int 1
+	'**':
+	  interactions:
+		3_bit_colour_mixer:
+		  - value: !!int 0
 - name: 3_bit_yellow
   alleles:
-    - 'Y'
-    - 'y'
+	- 'Y'
+	- 'y'
   phenotypes:
-    Y*:
-      interactions:
-        3_bit_colour_mixer:
-          - value: !!int 2
-    '**':
-      interactions:
-        3_bit_colour_mixer:
-          - value: !!int 0
+	Y*:
+	  interactions:
+		3_bit_colour_mixer:
+		  - value: !!int 2
+	'**':
+	  interactions:
+		3_bit_colour_mixer:
+		  - value: !!int 0
 - name: 3_bit_blue
   alleles:
-    - B
-    - b
+	- B
+	- b
   phenotypes:
-    B*:
-      interactions:
-        3_bit_colour_mixer:
-          - value: !!int 4
-    '**':
-      interactions:
-        3_bit_colour_mixer:
-          - value: !!int 0
+	B*:
+	  interactions:
+		3_bit_colour_mixer:
+		  - value: !!int 4
+	'**':
+	  interactions:
+		3_bit_colour_mixer:
+		  - value: !!int 0
 - name: 3_bit_red_strong
   alleles:
-    - R
-    - r
+	- R
+	- r
   phenotypes:
-    RR:
-      interactions:
-        3_bit_colour_mixer:
-          - value: !!int 1
-    Rr:
-      interactions:
-        3_bit_colour_mixer:
-          - value: !!int 1
-    rr:
-      interactions:
-        3_bit_colour_mixer:
-          - value: !!int 1
+	RR:
+	  interactions:
+		3_bit_colour_mixer:
+		  - value: !!int 1
+	Rr:
+	  interactions:
+		3_bit_colour_mixer:
+		  - value: !!int 1
+	rr:
+	  interactions:
+		3_bit_colour_mixer:
+		  - value: !!int 1
 - name: 3_bit_yellow_strong
   alleles:
-    - 'Y'
-    - 'y'
+	- 'Y'
+	- 'y'
   phenotypes:
-    YY:
-      interactions:
-        3_bit_colour_mixer:
-          - value: !!int 7
-    Yy:
-      interactions:
-        3_bit_colour_mixer:
-          - value: !!int 2
-    yy:
-      interactions:
-        3_bit_colour_mixer:
-          - value: !!int 0
+	YY:
+	  interactions:
+		3_bit_colour_mixer:
+		  - value: !!int 7
+	Yy:
+	  interactions:
+		3_bit_colour_mixer:
+		  - value: !!int 2
+	yy:
+	  interactions:
+		3_bit_colour_mixer:
+		  - value: !!int 0
 - name: 3_bit_blue_strong
   alleles:
-    - B
-    - b
+	- B
+	- b
   phenotypes:
-    BB:
-      interactions:
-        3_bit_colour_mixer:
-          - value: !!int 7
-    Bb:
-      interactions:
-        3_bit_colour_mixer:
-          - value: !!int 4
-    bb:
-      interactions:
-        3_bit_colour_mixer:
-          - value: !!int 0
+	BB:
+	  interactions:
+		3_bit_colour_mixer:
+		  - value: !!int 7
+	Bb:
+	  interactions:
+		3_bit_colour_mixer:
+		  - value: !!int 4
+	bb:
+	  interactions:
+		3_bit_colour_mixer:
+		  - value: !!int 0
 - name: hidden_purple
   alleles:
-    - R
-    - P
-    - p
-    - r
+	- R
+	- P
+	- p
+	- r
   phenotypes:
-    R*:
-      colour:
-        value: !!int 0
-    P*:
-      colour:
-        value: !!int 14
-    p*:
-      colour:
-        value: !!int 7
-    r*:
-      colour:
-        value: !!int 3
+	R*:
+	  colour:
+		value: !!int 0
+	P*:
+	  colour:
+		value: !!int 14
+	p*:
+	  colour:
+		value: !!int 7
+	r*:
+	  colour:
+		value: !!int 3
 
 ###################
 ### Story Genes ###
@@ -198,23 +198,23 @@
 
 - name: colour_1
   alleles: 
-    - G
-    - g
+	- G
+	- g
   phenotypes:
-    G*:
-      colour:
-        value: !!int 8
-    gg:
-      colour:
-        value: !!int 1
+	G*:
+	  colour:
+		value: !!int 8
+	gg:
+	  colour:
+		value: !!int 1
 - name: texture
   alleles:
-    - R
-    - r
+	- R
+	- r
   phenotypes:
-    R*:
-      base_image:
-        value: Coloured_Circles
-    rr:
-      base_image:
-        value: Coloured_Crosses
+	R*:
+	  base_image:
+		value: Coloured_Circles
+	rr:
+	  base_image:
+		value: Coloured_Crosses

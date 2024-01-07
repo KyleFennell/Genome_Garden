@@ -9,21 +9,32 @@ static func get_phenotype(species: Species, genes: Dictionary):
 		var phenotypes = species.genome[gene].phenotypes
 		for phenotype in phenotypes:
 			if alleles_match(phenotype, genes[gene]):
-				for property in phenotypes[phenotype]:
-					matching_phenotypes.merge(phenotypes[phenotype])
+				_merge_phenotypes(matching_phenotypes, phenotypes[phenotype].duplicate(true))
 				break;
-#	print("complete phenotype matches: ", matching_phenotypes)
-
-	# Handel interactions
-	#var interactions = {}
-	#for tag in matching_phenotypes:
-		#for interaction_name in matching_phenotypes[tag]["interactions"]:
-			#var interaction_res = Database.Interactions[interaction_name]
-			#interactions[interaction_name] = interaction_res.get_properties(matching_phenotypes[tag]["interactions"][interaction_name])
-#	print("interactions: ", interactions)
 	
-	# Colapse tags
+	for interaction in species.interactions:
+		var results = interaction.process_interaction(matching_phenotypes["interactions"])
+		_merge_phenotypes(matching_phenotypes, results)
+	
 	return matching_phenotypes
+
+static func _merge_phenotypes(p1: Dictionary, p2: Dictionary):
+	# merge modules dictionary
+	if "modules" in p1 and "modules" in p2:
+		p1["modules"].merge(p2["modules"])
+		for module in p2["modules"]:
+			#overwrite existing values
+			p1["modules"][module].merge(p2["modules"][module], true)
+	elif "modules" in p2:
+		p1["modules"] = p2["modules"]
+	# merge new uniqu interactions into array
+	if "interactions" in p1 and "interactions" in p2:
+		#p1["interactions"].append_array(p2["interactions"])
+		for i in p2["interactions"]:
+			if not i in p1["interactions"]:
+				p1["interactions"].append(i)
+	elif "interactions" in p2:
+		p1["interactions"] = p2["interactions"]
 
 static func generate_child(p1: Item, p2: Item)-> Item:
 	#generates a random child from two parents mutations included
@@ -211,9 +222,16 @@ static func alleles_match(a1: String, a2: String) -> bool:
 		return false
 	return true
 
-static func get_raw_genotype(genes) -> String:
+static func get_raw_genotype(species: Species, genes: Dictionary) -> String:
 	# concatenates all alleles together creating a unique string for the genotype
 	var raw_genotype = ""
-	for gene in genes:
+	for gene in species.genome:
 		raw_genotype += genes[gene]
 	return raw_genotype
+
+static func get_heterozygous_count(genes: Dictionary) -> int:
+	var count = 0
+	for gene in genes.values():
+		if gene[0] != gene[1]:
+			count += 1
+	return count

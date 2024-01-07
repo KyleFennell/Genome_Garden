@@ -19,4 +19,4 @@ func set_colour(index: int):
 	)
 
 func set_texture(path: String):
-	self.texture = load(path)
+	self.set_atlas(load(path)) 

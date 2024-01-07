@@ -9,13 +9,12 @@ var Speciess = {}
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	load_folder_data("Species", Species, "Speciess")
-	load_file_data("Genes", Gene, "Genes")
-	load_file_data("Interactions", Interaction, "Interactions")
+	#load_file_data("Genes", Gene, "Genes")
+	#load_file_data("Interactions", Interaction, "Interactions")
 	#load_file_data("Levels", Level, "Levels")
 	load_file_data("Contracts", Contract, "Contracts")
 	
 func load_file_data(data_name, resource_type, member):
-	print(data_name)
 	var my_csharp_script = preload("res://Data/Singletons/YmlToJson.cs")
 	var my_csharp_node = my_csharp_script.new()
 	var resources = JSON.parse_string(my_csharp_node.Convert("res://Data/DataFiles/"+data_name+".yml"))
@@ -24,7 +23,6 @@ func load_file_data(data_name, resource_type, member):
 		self[member][res["name"]] = new_resource
 
 func load_folder_data(folder_name: String, resource_type: Resource, member: String):
-	print("Species")
 	var my_csharp_script = preload("res://Data/Singletons/YmlToJson.cs")
 	var my_csharp_node = my_csharp_script.new()
 	var dir = DirAccess.open("res://Data/DataFiles/Species")

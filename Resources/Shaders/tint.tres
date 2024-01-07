@@ -25,9 +25,9 @@ default_input_values = [0, Vector3(0, 0, 0), 1, Vector3(1, 1, 1)]
 operator = 3
 
 [sub_resource type="VisualShaderNodeVec4Parameter" id="VisualShaderNodeVec4Parameter_1ypue"]
-output_port_for_preview = 0
 expanded_output_ports = [0]
 parameter_name = "Colour"
+default_value_enabled = true
 
 [sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_lexbn"]
 output_port_for_preview = 0
@@ -42,7 +42,7 @@ code = "shader_type canvas_item;
 render_mode blend_mix;
 
 uniform bool HSV;
-uniform vec4 Colour;
+uniform vec4 Colour = vec4(0.000000, 0.000000, 0.000000, 0.000000);
 
 
 
@@ -113,6 +113,7 @@ void fragment() {
 
 }
 "
+graph_offset = Vector2(-54, 0)
 mode = 1
 flags/light_only = false
 nodes/fragment/0/position = Vector2(420, 1220)

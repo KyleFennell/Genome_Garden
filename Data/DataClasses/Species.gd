@@ -16,6 +16,8 @@ func _init(data: Dictionary):
 		self.genome[gene["name"]] = Gene.new(gene)
 	_calculate_identifications()
 	self.modules = data.get("modules", [])
+	for interaction in data.get("interactions", []):
+		self.interactions.append(Interaction.new(interaction))
 
 func _calculate_identifications() -> void:
 	var instances_for_genes = [{}]
@@ -35,5 +37,5 @@ func _calculate_identifications() -> void:
 			phenotype_counts[str(phenotype)] = 0
 		else:
 			phenotype_counts[str(phenotype)] += 1
-		var raw_genotype = GeneHelpers.get_raw_genotype(gene)
+		var raw_genotype = GeneHelpers.get_raw_genotype(self, gene)
 		identifications[raw_genotype] = phenotype_counts[str(phenotype)]
