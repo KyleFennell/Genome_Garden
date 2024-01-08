@@ -1,9 +1,7 @@
 extends Container
 
 @onready var StartingItemTag = %StartingItemTag
-@onready var MainTexture = %MainTexture
 @onready var Identification = %Identification
-@onready var InnerTexture = %InnerTexture
 @onready var HiddenItem = %HiddenItem
 
 @onready var ModifiableChildren = %ModifiableChildren
@@ -11,16 +9,15 @@ extends Container
 var item: Item = null
 
 func _ready():
-	MainTexture.texture = MainTexture.texture.duplicate()
 	Identification.texture = Identification.texture.duplicate()
-	InnerTexture.texture = InnerTexture.texture.duplicate()
-	HiddenItem.get_child(0).texture = MainTexture.texture
 	Events.allele_discovered.connect(update_item_display)
 	
 func update_item_display() -> void:
 	# update the textures and tags based on self.item
 	for child in ModifiableChildren.get_children():
 		ModifiableChildren.remove_child(child)
+
+	#HiddenItem.get_child(0).texture = ModifiableChildren.get_child(0).texture
 	
 	if self.item == null:
 		hide()

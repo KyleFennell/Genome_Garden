@@ -60,9 +60,9 @@ genome:
     alleles:
       - T
       - t
-    default: tt
+    default: TT
     phenotypes:
-      T*:
+      tt:
         interactions:
           - trim
 

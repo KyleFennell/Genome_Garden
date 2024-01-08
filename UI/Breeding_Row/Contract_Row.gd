@@ -8,6 +8,9 @@ var RequirementElements = []
 var RewardElements = []
 var contract: Contract
 
+signal slot_clicked
+signal auto_fill_goal
+
 func set_contract(contract: Contract):
 	self.contract = contract
 	contract.contract_changed.connect(update_display)
@@ -28,7 +31,8 @@ func _add_item_requirement_children(item_requirements):
 		add_element(req_slot)
 		req_slot.set_goal(requirement)
 		req_slot.goal_complete.connect(_requirement_fulfilled)
-
+		req_slot.connect("gui_input", Helpers.slot_click_event.bind(req_slot, auto_fill_goal))
+		
 func _add_item_reward_children(item_rewards):
 	for reward in item_rewards:
 		var req_slot = ItemSlot.instantiate()
@@ -37,7 +41,8 @@ func _add_item_reward_children(item_rewards):
 		req_slot.set_item(reward)
 		req_slot.dragable = false
 		req_slot.dropable = false
-
+		req_slot.connect("gui_input", Helpers.slot_click_event.bind(req_slot, slot_clicked))
+		
 func add_element(node: Node):
 	get_child(0).add_child(node)
 

@@ -43,7 +43,7 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 func _get_drag_data(_at_position: Vector2) -> Variant:
 	if dragable and item != null:
 		
-		create_drag_preview(ItemDisplay.MainTexture.texture)
+		create_drag_preview()
 		ItemDisplay.hide()
 		
 		var drag_data = {"item": item, "previous_slot": self}
@@ -59,16 +59,13 @@ func potential_drop(data: Variant):
 func successful_drop(new_item: Variant):
 	set_item(new_item)
 	
-func create_drag_preview(texture: Texture):
-	var drag_preview = TextureRect.new()
-	drag_preview.texture = ItemDisplay.MainTexture.texture
-	drag_preview.position.x = -(drag_preview.texture.get_width()/2)
-	drag_preview.position.y = -(drag_preview.texture.get_height()/2)
-	
-	var container = Container.new()
-	container.add_child(drag_preview)
-	
-	set_drag_preview(container)
+func create_drag_preview():
+	var drag_preview = ItemDisplay.duplicate(true)
+	var tex = drag_preview.get_child(0).get_child(0).texture
+	drag_preview.position.x = -tex.get_width()/2
+	drag_preview.position.y = -tex.get_height()/2
+		
+	set_drag_preview(drag_preview)
 
 func has_item() -> bool:
 	return item != null

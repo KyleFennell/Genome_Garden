@@ -31,6 +31,7 @@ func start_story_mode():
 	contract_values.assign(Database.Contracts.values())
 	Contracts.load_contracts(contract_values)
 	Contracts.show_contract("pea_breeding")
+	Contracts.auto_fill_goal.connect(on_goal_auto_fill)
 	Inventory.load_inventory([
 		Item.new({
 			"genes": {
@@ -47,7 +48,7 @@ func start_story_mode():
 	])
 	
 func on_functional_slot_clicked(slot: ItemSlot):
-	if slot.has_item():
+	if slot.has_item() and slot.dragable:
 		if Inventory.can_quick_store_item(slot.item):
 			Inventory.quick_store_item(slot.item)
 			slot.set_item(null)
