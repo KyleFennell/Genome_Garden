@@ -13,7 +13,7 @@ func set_colour(index: int):
 	self.current_index = index
 	self.region = Rect2(
 		sub_width*(index%h_images), 
-		sub_height*(floor(float(index)/v_images)), 
+		sub_height*(floor(float(index)/h_images)), 
 		sub_width, 
 		sub_height
 	)

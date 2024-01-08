@@ -45,7 +45,7 @@ func start_story_mode():
 			},
 			"species": "pea"
 		})
-	])
+	])	
 	
 func on_functional_slot_clicked(slot: ItemSlot):
 	if slot.has_item() and slot.dragable:

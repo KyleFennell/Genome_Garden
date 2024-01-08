@@ -40,5 +40,4 @@ genome:
       pp:
         modules:
           base_texture:
-            priority: !!int 1
             sub_texture: !!int 3  
