@@ -73,16 +73,11 @@ genome:
       - "n"
     default: nn
     phenotypes:
-      HH:
+      HL: {}
+      H*:
         interactions:
           - high_tint
-      Hn:
-        interactions:
-          - high_tint
-      LL:
-        interactions:
-          - low_tint
-      Ln:
+      L*:
         interactions:
           - low_tint
 

@@ -95,7 +95,7 @@
       species: tulip
       genes: 
         colour_1: Rb
-        trim: TT
+        trim: tt
         trim_saturation: HL
   
 - name: pea_phenotypes

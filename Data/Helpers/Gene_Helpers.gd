@@ -13,7 +13,7 @@ static func get_phenotype(species: Species, genes: Dictionary):
 				break;
 	
 	for interaction in species.interactions:
-		var results = interaction.process_interaction(matching_phenotypes["interactions"])
+		var results = interaction.process_interaction(matching_phenotypes.get("interactions", []))
 		_merge_phenotypes(matching_phenotypes, results)
 	
 	return matching_phenotypes

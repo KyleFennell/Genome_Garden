@@ -49,15 +49,11 @@ func update_item_display() -> void:
 	if item.identified:
 		var raw_genotype = GeneHelpers.get_raw_genotype(item.species, item.genes)
 		#var id = Database.Levels[Globals.current_level].identifications[raw_genotype]
-		var id = item.species.identifications[raw_genotype]
+		var id = item.species.identifications[raw_genotype]["genotype_id"]
 		var purity = GeneHelpers.get_heterozygous_count(item.genes)
 		Identification.show()
-		Identification.texture.set_colour(id)
-		match purity:
-			0: Identification.texture.set_texture("res://Resources/Coloured_Shapes/identifications_circle.png")
-			1: Identification.texture.set_texture("res://Resources/Coloured_Shapes/identifications_square.png")
-			2: Identification.texture.set_texture("res://Resources/Coloured_Shapes/identifications_diamond.png")
-			_: Identification.texture.set_texture("res://Resources/Coloured_Shapes/identifications_star.png")
+		var sub_tex = id+(min(purity,5)*3*16)
+		Identification.texture.set_colour(sub_tex)
 				 
 func set_item(_item: Item) -> void:
 	self.item = _item
