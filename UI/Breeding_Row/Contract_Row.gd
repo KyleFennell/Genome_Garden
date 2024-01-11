@@ -31,7 +31,7 @@ func _add_item_requirement_children(item_requirements):
 		add_element(req_slot)
 		req_slot.set_goal(requirement)
 		req_slot.goal_complete.connect(_requirement_fulfilled)
-		req_slot.connect("gui_input", Helpers.slot_click_event.bind(req_slot, auto_fill_goal))
+		req_slot.connect("gui_input", Helpers.element_clicked_event.bind(req_slot, auto_fill_goal))
 		
 func _add_item_reward_children(item_rewards):
 	for reward in item_rewards:
@@ -41,7 +41,7 @@ func _add_item_reward_children(item_rewards):
 		req_slot.set_item(reward)
 		req_slot.dragable = false
 		req_slot.dropable = false
-		req_slot.connect("gui_input", Helpers.slot_click_event.bind(req_slot, slot_clicked))
+		req_slot.connect("gui_input", Helpers.element_clicked_event.bind(req_slot, slot_clicked))
 		
 func add_element(node: Node):
 	get_child(0).add_child(node)

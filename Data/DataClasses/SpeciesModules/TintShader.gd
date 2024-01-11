@@ -31,7 +31,6 @@ func process_attributes(dict: Dictionary):
 						value.get("a", 1.0)
 					)
 				shader.set_shader_parameter("Colour", colour)
-				print("set shader colour: ", colour)
 			"r":
 				var current_colour: Vector4 = shader.get_shader_parameter("Colour")
 				current_colour.x = value

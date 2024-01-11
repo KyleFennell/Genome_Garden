@@ -12,8 +12,8 @@ func _ready():
 	Parent1.connect("slot_contence_changed", on_parent_changed)
 	Parent2.connect("slot_contence_changed", on_parent_changed)
 	
-	Parent1.connect("gui_input", Helpers.slot_click_event.bind(Parent1, slot_clicked))
-	Parent2.connect("gui_input", Helpers.slot_click_event.bind(Parent2, slot_clicked))
+	Parent1.connect("gui_input", Helpers.element_clicked_event.bind(Parent1, slot_clicked))
+	Parent2.connect("gui_input", Helpers.element_clicked_event.bind(Parent2, slot_clicked))
 	
 func on_parent_changed() -> void:
 	clear_previews()

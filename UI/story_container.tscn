@@ -9,6 +9,7 @@ visible = false
 script = ExtResource("1_shedh")
 
 [node name="HeaderBar" parent="." instance=ExtResource("2_uvvv1")]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="HSeparator" type="HSeparator" parent="."]

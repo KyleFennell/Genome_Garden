@@ -13,9 +13,9 @@ func _ready():
 	Input2.connect("slot_contence_changed", on_input_item_changed)
 	Output.connect("slot_contence_changed", on_output_item_changed)
 	
-	Input1.connect("gui_input", Helpers.slot_click_event.bind(Input1, slot_clicked))
-	Input2.connect("gui_input", Helpers.slot_click_event.bind(Input2, slot_clicked))
-	Output.connect("gui_input", Helpers.slot_click_event.bind(Output, slot_clicked))
+	Input1.connect("gui_input", Helpers.element_clicked_event.bind(Input1, slot_clicked))
+	Input2.connect("gui_input", Helpers.element_clicked_event.bind(Input2, slot_clicked))
+	Output.connect("gui_input", Helpers.element_clicked_event.bind(Output, slot_clicked))
 	
 	ProgressArrow.TIME = BREED_TIME
 	ProgressArrow.connect("timeout", on_breeding_timer_finished)

@@ -1,0 +1,167 @@
+[gd_scene load_steps=5 format=3 uid="uid://cjsbljwalfj35"]
+
+[ext_resource type="Script" path="res://UI/InfoPanel.gd" id="1_akbdc"]
+[ext_resource type="StyleBox" uid="uid://ddpawkwbkxx4w" path="res://Panel_Light.tres" id="1_r1ilb"]
+[ext_resource type="Texture2D" uid="uid://ctu4b6g1vt2yt" path="res://Resources/UI/Back_Icon.png" id="3_imb78"]
+[ext_resource type="Texture2D" uid="uid://bmr5sfow61f44" path="res://Resources/UI/Close_Icon.png" id="4_nws4f"]
+
+[node name="InfoPanel" type="MarginContainer"]
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+script = ExtResource("1_akbdc")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("1_r1ilb")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="AspectRatioContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BackButton" type="TextureButton" parent="PanelContainer/VBoxContainer/HBoxContainer2/AspectRatioContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("3_imb78")
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 6.0
+theme_override_font_sizes/font_size = 20
+text = "FloraDex
+"
+horizontal_alignment = 1
+
+[node name="AspectRatioContainer2" type="MarginContainer" parent="PanelContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CloseButton" type="TextureButton" parent="PanelContainer/VBoxContainer/HBoxContainer2/AspectRatioContainer2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("4_nws4f")
+stretch_mode = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SpeciesListPanel" type="PanelContainer" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SpeciesList" type="VBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/SpeciesListPanel"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="InfoTabs" type="TabContainer" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+theme_override_font_sizes/font_size = 10
+current_tab = 1
+
+[node name="Info" type="PanelContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/InfoTabs"]
+visible = false
+layout_mode = 2
+
+[node name="GeneInfoContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/InfoTabs/Info"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/InfoTabs/Info/GeneInfoContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/InfoTabs/Info/GeneInfoContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="GeneInfoBackButton" type="TextureButton" parent="PanelContainer/VBoxContainer/HBoxContainer/InfoTabs/Info/GeneInfoContainer/VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="GeneLabel" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/InfoTabs/Info/GeneInfoContainer/VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Pea: Colour_1"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/InfoTabs/Info/GeneInfoContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Alleles"
+
+[node name="AllelesList" type="GridContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/InfoTabs/Info/GeneInfoContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+columns = 2
+
+[node name="Label3" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/InfoTabs/Info/GeneInfoContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Phenotypes"
+
+[node name="PhenotypesList" type="GridContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/InfoTabs/Info/GeneInfoContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+columns = 2
+
+[node name="GenesListContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/InfoTabs/Info"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/InfoTabs/Info/GenesListContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Genes"
+
+[node name="GenesList" type="GridContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/InfoTabs/Info/GenesListContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+columns = 2
+
+[node name="Label2" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/InfoTabs/Info/GenesListContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Interactions"
+
+[node name="InteractionsList" type="GridContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/InfoTabs/Info/GenesListContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+columns = 2
+
+[node name="Dex" type="PanelContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/InfoTabs"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/InfoTabs/Dex"]
+layout_mode = 2
+
+[node name="GenotypesGrid" type="GridContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/InfoTabs/Dex/ScrollContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+columns = 5
+
+[node name="ScrollContainer2" type="ScrollContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/InfoTabs/Dex"]
+layout_mode = 2
+
+[node name="PhenotypesGrid" type="GridContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/InfoTabs/Dex/ScrollContainer2"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+columns = 4

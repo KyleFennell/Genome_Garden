@@ -1,7 +1,7 @@
 extends Resource
 class_name Item
 
-var genes = []
+var genes = {}
 var modules = []
 var identified = false
 var is_starting_item = false
@@ -11,7 +11,7 @@ var species: Species = null
 func _init(dict, is_identified=false, starting_item=false):
 	if "species" in dict:
 		species = Database.Speciess[dict.get("species")]
-	genes = dict.get("genes", [])
+	genes = dict.get("genes", {})
 	identified = dict.get("identified", is_identified)
 	self.is_starting_item = starting_item
 	if self.species != null:
@@ -31,9 +31,13 @@ func fill_default_genes():
 		if not gene in self.genes.keys():
 			self.genes[gene] = self.species.genome[gene].default
 
-func equals(other: Item, idenfitied_relevant: bool=false) -> bool:
+func equals(other: Item, idenfied_relevant: bool=false) -> bool:
 	if not other is Item:
 		return false
-	if idenfitied_relevant and other.identified != identified:
+	if idenfied_relevant and other.identified != identified:
 		return false
 	return GeneHelpers.genes_match(self.genes, other.genes)
+
+func identify():
+	identified = true
+	species.identify(genes)

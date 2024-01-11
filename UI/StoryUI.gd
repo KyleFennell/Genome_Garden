@@ -44,7 +44,36 @@ func start_story_mode():
 				"colour_1": "GG"
 			},
 			"species": "pea"
-		})
+		}),
+		Item.new({
+			"genes": {
+				"colour_1": "Rb"
+			},
+			"species": "tulip"
+		}),
+		Item.new({
+			"genes": {
+				"colour_1": "yb"
+			},
+			"species": "tulip"
+		}),
+		Item.new({
+			"genes": {
+				"colour_1": "bb",
+				"trim": "tt",
+				"trim_saturation": "HH"
+			},
+			"species": "tulip"
+		}),
+		Item.new({
+			"genes": {
+				"colour_1": "RR",
+				"pigment": "pp",
+				"trim": "tt",
+				"trim_saturation": "LL"
+			},
+			"species": "tulip"
+		}),
 	])	
 	
 func on_functional_slot_clicked(slot: ItemSlot):

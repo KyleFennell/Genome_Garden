@@ -235,3 +235,11 @@ static func get_heterozygous_count(genes: Dictionary) -> int:
 		if gene[0] != gene[1]:
 			count += 1
 	return count
+
+static func get_heterozygous_count_raw(raw_genotype: String) -> int:
+	var count = 0
+	for i in raw_genotype.length()/2:
+		if raw_genotype[2*i] != raw_genotype[2*i+1]:
+			count += 1
+	return count
+	

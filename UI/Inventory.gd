@@ -12,7 +12,7 @@ func _ready():
 	for i in INVENTORY_SIZE:
 		var slot_instance = ItemSlot.instantiate()
 		itemList.add_child(slot_instance)
-		slot_instance.connect("gui_input", Helpers.slot_click_event.bind(slot_instance, slot_clicked))
+		slot_instance.connect("gui_input", Helpers.element_clicked_event.bind(slot_instance, slot_clicked))
 	if CONTAINS_DELETE:
 		var delete_slot = DeleteSlot.instantiate()
 		itemList.add_child(delete_slot)

@@ -1,4 +1,8 @@
 name: pea
+id_difficulty: 
+  genotype: !!int 2
+  allele: !!int 10
+  phenotype: !!int 5
 modules:
   - name: base_texture
     kind: AtlasTexture

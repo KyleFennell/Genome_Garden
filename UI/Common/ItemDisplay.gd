@@ -49,7 +49,7 @@ func update_item_display() -> void:
 	if item.identified:
 		var raw_genotype = GeneHelpers.get_raw_genotype(item.species, item.genes)
 		#var id = Database.Levels[Globals.current_level].identifications[raw_genotype]
-		var id = item.species.identifications[raw_genotype]["genotype_id"]
+		var id = item.species.identifications[raw_genotype]["phen_het_id"]
 		var purity = GeneHelpers.get_heterozygous_count(item.genes)
 		Identification.show()
 		var sub_tex = id+(min(purity,5)*3*16)

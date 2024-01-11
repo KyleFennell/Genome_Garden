@@ -8,9 +8,9 @@ signal slot_clicked
 
 func _ready():
 	InputSlot.connect("slot_contence_changed", on_input_item_changed)
-	InputSlot.connect("gui_input", Helpers.slot_click_event.bind(InputSlot, slot_clicked))
+	InputSlot.connect("gui_input", Helpers.element_clicked_event.bind(InputSlot, slot_clicked))
 	OutputSlot.connect("slot_contence_changed", on_output_item_changed)
-	OutputSlot.connect("gui_input", Helpers.slot_click_event.bind(OutputSlot, slot_clicked))
+	OutputSlot.connect("gui_input", Helpers.element_clicked_event.bind(OutputSlot, slot_clicked))
 	ProgressArrow.connect("timeout", on_identifying_timer_finished)
 	
 func on_input_item_changed() -> void:
@@ -37,7 +37,7 @@ func on_identifying_timer_finished() -> void:
 
 func complete_identifying() -> void:
 	if InputSlot.has_item():
-		InputSlot.item.identified = true
+		InputSlot.item.identify()
 		OutputSlot.set_item(InputSlot.item)
 		InputSlot.set_item(null)
 

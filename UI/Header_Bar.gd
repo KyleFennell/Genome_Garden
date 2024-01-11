@@ -22,4 +22,5 @@ func on_menu_button_up():
 	menu_button_up.emit()
 
 func on_info_button_up():
+	print("info_button_up")
 	info_button_up.emit()

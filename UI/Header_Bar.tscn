@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://uo5jmwg10vix"]
+[gd_scene load_steps=5 format=3 uid="uid://uo5jmwg10vix"]
 
 [ext_resource type="Script" path="res://UI/Header_Bar.gd" id="1_utm2y"]
 [ext_resource type="Texture2D" uid="uid://ds0yig1xjd78" path="res://Resources/UI/Reset.png" id="2_6xdi1"]
+[ext_resource type="Texture2D" uid="uid://bl387xnwgne0w" path="res://Resources/UI/Info_Icon.png" id="3_f0r8x"]
 [ext_resource type="Texture2D" uid="uid://bhjqal27r7xu5" path="res://Resources/UI/Menu.png" id="3_yxi3s"]
 
 [node name="HBoxContainer" type="HBoxContainer"]
@@ -12,6 +13,7 @@ size_flags_vertical = 3
 script = ExtResource("1_utm2y")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -39,7 +41,7 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-texture_normal = ExtResource("2_6xdi1")
+texture_normal = ExtResource("3_f0r8x")
 stretch_mode = 4
 
 [node name="MarginContainer2" type="MarginContainer" parent="."]
@@ -53,7 +55,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Levels"
+text = "Story"
 horizontal_alignment = 1
 vertical_alignment = 1
 
