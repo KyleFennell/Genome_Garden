@@ -26,7 +26,6 @@ func _ready():
 
 func start_story_mode():
 	#Database.Levels["Story"] = Level.new({"name": "Story", "genome": ["colour_1"]})
-	Globals.current_level = "Story"
 	var contract_values: Array[Contract]
 	contract_values.assign(Database.Contracts.values())
 	Contracts.load_contracts(contract_values)
@@ -37,44 +36,60 @@ func start_story_mode():
 			"genes": {
 				"colour_1": "GG"
 			},
-			"species": "pea"
+			"species": "Pea"
 		}),
 		Item.new({
 			"genes": {
 				"colour_1": "GG"
 			},
-			"species": "pea"
+			"species": "Pea"
 		}),
-		Item.new({
-			"genes": {
-				"colour_1": "Rb"
-			},
-			"species": "tulip"
-		}),
-		Item.new({
-			"genes": {
-				"colour_1": "yb"
-			},
-			"species": "tulip"
-		}),
-		Item.new({
-			"genes": {
-				"colour_1": "bb",
-				"trim": "tt",
-				"trim_saturation": "HH"
-			},
-			"species": "tulip"
-		}),
-		Item.new({
-			"genes": {
-				"colour_1": "RR",
-				"pigment": "pp",
-				"trim": "tt",
-				"trim_saturation": "LL"
-			},
-			"species": "tulip"
-		}),
+		#Item.new({
+			#"species": "Hexachroma",
+			#"genes": {
+				#"colour_n": "WW",
+				#"colour_se": "bb",
+				#"colour_sw": "yy"
+			#}
+		#}),
+		#Item.new({
+			#"species": "Hexachroma",
+			#"genes": {}
+		#})
+		#Item.new({
+			#"genes": {
+				#"colour_1": "Rb"
+			#},
+			#"species": "tulip"
+		#}),
+		#Item.new({
+			#"genes": {
+				#"colour_1": "yb"
+			#},
+			#"species": "tulip"
+		#}),
+		#Item.new({
+			#"genes": {
+				#"colour_1": "bb",
+				#"trim": "tt",
+				#"trim_saturation": "HH"
+			#},
+			#"species": "tulip"
+		#}),
+		#Item.new({
+			#"genes": {
+				#"colour_1": "RR",
+				#"pigment": "pp",
+				#"trim": "tt",
+				#"trim_saturation": "LL"
+			#},
+			#"species": "tulip"
+		#}),
 	])	
+	Globals.current_level = "Story"
+	await get_tree().process_frame
+	#Globals.tutorial.focus_spotlight_on_node(Breed.get_child(0).Input1.BackgroundTexture)
+	#Globals.tutorial.show()
 	
 func on_functional_slot_clicked(slot: ItemSlot):
 	if slot.has_item() and slot.dragable:

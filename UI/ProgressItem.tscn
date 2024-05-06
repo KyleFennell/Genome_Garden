@@ -4,7 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://bvd0t6ahgdtt5" path="res://UI/Common/ItemDisplay.tscn" id="2_fy753"]
 
 [node name="MarginContainer" type="AspectRatioContainer"]
+offset_right = 64.0
+offset_bottom = 64.0
 size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_rm1gc")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]

@@ -13,7 +13,9 @@ static func get_phenotype(species: Species, genes: Dictionary):
 				break;
 	
 	for interaction in species.interactions:
-		var results = interaction.process_interaction(matching_phenotypes.get("interactions", []))
+		var interactions: Array[String]
+		interactions.assign(matching_phenotypes.get("interactions", []))
+		var results = interaction.process_interaction(interactions)
 		_merge_phenotypes(matching_phenotypes, results)
 	
 	return matching_phenotypes
@@ -243,3 +245,9 @@ static func get_heterozygous_count_raw(raw_genotype: String) -> int:
 			count += 1
 	return count
 	
+static func raw_genotypes_match(g1: String, g2: String):
+	for i in g1.length():
+		if g1[i] == g2[i] or g1[i] == "*" or g2[i] == "*":
+			continue
+		return false
+	return true

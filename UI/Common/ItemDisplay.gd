@@ -54,7 +54,7 @@ func update_item_display() -> void:
 		Identification.show()
 		var sub_tex = id+(min(purity,5)*3*16)
 		Identification.texture.set_colour(sub_tex)
-				 
+
 func set_item(_item: Item) -> void:
 	self.item = _item
 	update_item_display()

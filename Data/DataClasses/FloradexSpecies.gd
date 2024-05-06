@@ -26,7 +26,8 @@ class _PhenotypeData:
 			display_gene = phenotype.get("display_genes")
 			self.species = species
 			for genotype in phenotype.get("genotypes"):
-				genotypes.append(_GenotypeEntry.new(genotype, species))
+				if species.enableGenotypeDex:
+					genotypes.append(_GenotypeEntry.new(genotype, species))
 
 		func get_progress() -> float:
 			var progress_sum = 0
@@ -111,7 +112,7 @@ class _GenomeData:
 	class _InteractionEntry:
 		var name: String
 		var species: Species
-		var requiremenets: Array[String]
+		var requiremenets: Array
 		var identifications: int = 0
 		
 		func _init(interaction: Interaction, species: Species):

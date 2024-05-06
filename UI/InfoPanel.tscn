@@ -145,7 +145,6 @@ columns = 2
 
 [node name="Dex" type="PanelContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/InfoTabs"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 
 [node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/InfoTabs/Dex"]
@@ -164,4 +163,6 @@ layout_mode = 2
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 columns = 4

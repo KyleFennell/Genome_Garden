@@ -1,13 +1,13 @@
 - name: pea_breeding
   requirements:
     - kind: item
-      species: pea
+      species: Pea
       genes:
         colour_1: GG
       quantity: !!int 1
   rewards:
     - kind: item
-      species: pea
+      species: Pea
       genes:
         colour_1: gg
     - kind: contract
@@ -18,17 +18,17 @@
 - name: pea_recessive
   requirements:
     - kind: item
-      species: pea
+      species: Pea
       genes:
         colour_1: gg
       quantity: !!int 1
   rewards:
     - kind: item
-      species: tulip
+      species: Tulip
       genes:
         colour_1: RR
     - kind: item
-      species: tulip
+      species: Tulip
       genes:
         colour_1: yy
     - kind: contract
@@ -43,14 +43,14 @@
 - name: pea_heterozygous
   requirements:
     - kind: item
-      species: pea
+      species: Pea
       genes:
         colour_1: Gg
       quantity: !!int 1
       identified: !!bool true
   rewards:
     - kind: item
-      species: pea 
+      species: Pea 
       genes:
         colour_1: GG
         texture: rr
@@ -62,18 +62,18 @@
 - name: tulip_codominance
   requirements:
     - kind: item
-      species: tulip
+      species: Tulip
       genes:
         colour_1: RR
       quantity: !!int 1
     - kind: item
-      species: tulip
+      species: Tulip
       genes:
         colour_1: yy
       quantity: !!int 1
   rewards:
     - kind: item
-      species: tulip
+      species: Tulip
       genes:
         colour_1: RR
         pigment: pp
@@ -85,14 +85,14 @@
 - name: tulip_white
   requirements:
     - kind: item
-      species: tulip
+      species: Tulip
       genes:
         colour_1: "**"
         pigment: pp
       quantity: !!int 1
   rewards:
     - kind: item
-      species: tulip
+      species: Tulip
       genes: 
         colour_1: Rb
         trim: tt
@@ -101,28 +101,28 @@
 - name: pea_phenotypes
   requirements:
     - kind: item
-      species: pea 
+      species: Pea 
       genes:
         colour_1: GG
         texture: RR
       quantity: !!int 5
       match_phenotype: !!bool true
     - kind: item
-      species: pea 
+      species: Pea 
       genes:
         colour_1: GG
         texture: rr
       quantity: !!int 5
       match_phenotype: !!bool true
     - kind: item
-      species: pea 
+      species: Pea 
       genes:
         colour_1: gg
         texture: RR
       quantity: !!int 5
       match_phenotype: !!bool true
     - kind: item
-      species: pea 
+      species: Pea 
       genes:
         colour_1: gg
         texture: rr
@@ -140,7 +140,7 @@
   requirements:
     - kind: floradex
       action: sequence
-      species: pea
+      species: Pea
       quantity: !!int 4
   rewards:
     - kind: dialogue

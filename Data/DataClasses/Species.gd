@@ -8,6 +8,7 @@ var genome: = {}
 var interactions: Array[Interaction] = []
 var identifications: Dictionary = {}
 var floradex_data: FloradexSpecies
+var enableGenotypeDex = true
 var discovered: Dictionary = {}
 
 class IdDifficulty:
@@ -30,6 +31,7 @@ func _init(data: Dictionary):
 	self.modules = data.get("modules", [])
 	for interaction in data.get("interactions", []):
 		self.interactions.append(Interaction.new(interaction))
+	self.enableGenotypeDex = data.enableGenotypeDex
 	_calculate_identifications()
 
 func _calculate_identifications() -> void:
@@ -42,6 +44,7 @@ func _calculate_identifications() -> void:
 				instance[gene] = combination
 				new_instances_for_genes.append(instance)
 		instances_for_genes = new_instances_for_genes
+		print(instances_for_genes.size())
 	
 	var phenotype_counts = {}
 	var phenotype_ids = {}

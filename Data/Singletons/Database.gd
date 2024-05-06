@@ -30,6 +30,9 @@ func load_folder_data(folder_name: String, resource_type: Resource, member: Stri
 	dir.list_dir_begin()
 	var file_name = dir.get_next()
 	while file_name != "":
+		if not ".yml" in file_name:
+			file_name = dir.get_next()
+			continue
 		var res = JSON.parse_string(my_csharp_node.Convert("res://Data/DataFiles/"+folder_name+"/"+file_name))
 		res = resource_type.new(res)
 		self[member][res.name] = res

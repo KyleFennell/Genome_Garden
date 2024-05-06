@@ -3,12 +3,12 @@
 [resource]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 draw_center = false
-border_width_left = 500
-border_width_top = 500
-border_width_right = 500
-border_width_bottom = 500
+border_width_left = 1000
+border_width_top = 1000
+border_width_right = 1000
+border_width_bottom = 1000
 border_color = Color(0, 0, 0, 0.6)
-corner_radius_top_left = 500
-corner_radius_top_right = 500
-corner_radius_bottom_right = 500
-corner_radius_bottom_left = 500
+corner_radius_top_left = 1000
+corner_radius_top_right = 1000
+corner_radius_bottom_right = 1000
+corner_radius_bottom_left = 1000

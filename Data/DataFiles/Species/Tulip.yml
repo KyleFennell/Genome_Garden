@@ -1,8 +1,9 @@
-name: tulip
+name: Tulip
 id_difficulty: 
   genotype: !!int 1
   allele: !!int 10
   phenotype: !!int 5
+enableGenotypeDex: !!bool true
 modules:
   - name: base_texture
     kind: AtlasTexture

@@ -1,8 +1,9 @@
-name: pea
+name: Pea
 id_difficulty: 
   genotype: !!int 2
   allele: !!int 10
   phenotype: !!int 5
+enableGenotypeDex: !!bool true
 modules:
   - name: base_texture
     kind: AtlasTexture
@@ -10,7 +11,7 @@ modules:
       path: res://Resources/Coloured_Shapes/Coloured_Circles.png
       width: 4
       height: 4
-    
+
 genome:
   - name: colour_1
     alleles:

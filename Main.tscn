@@ -9,23 +9,23 @@
 [ext_resource type="StyleBox" uid="uid://bwnyx0lv1gftl" path="res://Spotlight_Panel.tres" id="7_lj0bl"]
 [ext_resource type="PackedScene" uid="uid://bwx6fag8kd0rw" path="res://UI/NotificationModal.tscn" id="7_myx6d"]
 
-[node name="Main" type="Node2D"]
-metadata/_edit_vertical_guides_ = [-124.0]
-
-[node name="UIRoot" type="PanelContainer" parent="."]
-offset_right = 288.0
-offset_bottom = 325.0
+[node name="UIRoot" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 1
 theme_override_styles/panel = ExtResource("1_prqu4")
 script = ExtResource("2_842ad")
 
-[node name="MainMenu" type="VBoxContainer" parent="UIRoot"]
+[node name="MainMenu" type="VBoxContainer" parent="."]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Label" type="Label" parent="UIRoot/MainMenu"]
+[node name="Label" type="Label" parent="MainMenu"]
 layout_mode = 2
 size_flags_vertical = 6
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -33,24 +33,24 @@ theme_override_font_sizes/font_size = 28
 text = "Genome Garden"
 horizontal_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UIRoot/MainMenu"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenu"]
 layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
 
-[node name="MarginContainer2" type="MarginContainer" parent="UIRoot/MainMenu/VBoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="MainMenu/VBoxContainer"]
 layout_mode = 2
 
-[node name="StoryButton" parent="UIRoot/MainMenu/VBoxContainer/MarginContainer2" instance=ExtResource("3_2puuq")]
+[node name="StoryButton" parent="MainMenu/VBoxContainer/MarginContainer2" instance=ExtResource("3_2puuq")]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Story"
 
-[node name="StoryContainer" parent="UIRoot" instance=ExtResource("5_ltbis")]
+[node name="StoryContainer" parent="." instance=ExtResource("5_ltbis")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Greyout" type="MarginContainer" parent="UIRoot"]
+[node name="Greyout" type="MarginContainer" parent="."]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
@@ -59,28 +59,30 @@ theme_override_constants/margin_top = -2
 theme_override_constants/margin_right = -2
 theme_override_constants/margin_bottom = -2
 
-[node name="Panel" type="Panel" parent="UIRoot/Greyout"]
-unique_name_in_owner = true
-layout_mode = 2
-
-[node name="InfoPanel" parent="UIRoot" instance=ExtResource("5_4s7q0")]
+[node name="Panel" type="Panel" parent="Greyout"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="Tutorial" type="Control" parent="UIRoot"]
+[node name="InfoPanel" parent="." instance=ExtResource("5_4s7q0")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="Tutorial" type="Control" parent="."]
+unique_name_in_owner = true
 visible = false
 layout_mode = 2
 mouse_filter = 1
 script = ExtResource("7_32kts")
 
-[node name="SpotlightAnchor" type="Control" parent="UIRoot/Tutorial"]
+[node name="SpotlightAnchor" type="Control" parent="Tutorial"]
 layout_mode = 2
 anchors_preset = 0
 offset_right = 284.0
 offset_bottom = 321.0
 
-[node name="Spotlight" type="MarginContainer" parent="UIRoot/Tutorial/SpotlightAnchor"]
+[node name="Spotlight" type="MarginContainer" parent="Tutorial/SpotlightAnchor"]
 unique_name_in_owner = true
 layout_mode = 2
 anchor_left = 0.5
@@ -98,17 +100,18 @@ theme_override_constants/margin_top = -500
 theme_override_constants/margin_right = -500
 theme_override_constants/margin_bottom = -500
 
-[node name="Panel" type="Panel" parent="UIRoot/Tutorial/SpotlightAnchor/Spotlight"]
+[node name="Panel" type="Panel" parent="Tutorial/SpotlightAnchor/Spotlight"]
 layout_mode = 2
 theme_override_styles/panel = ExtResource("7_lj0bl")
 
-[node name="TextAnchor" type="Control" parent="UIRoot/Tutorial"]
+[node name="TextAnchor" type="Control" parent="Tutorial"]
+visible = false
 layout_mode = 1
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Text" type="PanelContainer" parent="UIRoot/Tutorial/TextAnchor"]
+[node name="Text" type="PanelContainer" parent="Tutorial/TextAnchor"]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -124,15 +127,15 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = ExtResource("1_prqu4")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="UIRoot/Tutorial/TextAnchor/Text"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Tutorial/TextAnchor/Text"]
 layout_mode = 2
 
-[node name="ModalAnchor" type="Control" parent="UIRoot"]
+[node name="ModalAnchor" type="Control" parent="."]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 
-[node name="NotificationModal" parent="UIRoot/ModalAnchor" instance=ExtResource("7_myx6d")]
+[node name="NotificationModal" parent="ModalAnchor" instance=ExtResource("7_myx6d")]
 unique_name_in_owner = true
 layout_mode = 1
 offset_left = -100.0
@@ -141,3 +144,6 @@ offset_right = 100.0
 offset_bottom = -5.0
 size_flags_horizontal = 4
 size_flags_vertical = 0
+
+[node name="Main" type="Node2D" parent="."]
+metadata/_edit_vertical_guides_ = [-124.0]
