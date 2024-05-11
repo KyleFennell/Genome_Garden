@@ -1,0 +1,566 @@
+name: Hexachroma
+id_difficulty: 
+  genotype: !!int 1
+  allele: !!int 10
+  phenotype: !!int 5
+enableGenotypeDex: !!bool false
+modules:
+  - name: petal_n_texture
+    kind: AtlasTexture
+    params:
+      path: res://Resources/Coloured_Shapes/Hexachroma/N_Petal.png
+      sub_texture: !!int 3
+
+  - name: petal_ne_texture
+    kind: AtlasTexture
+    params:
+      path: res://Resources/Coloured_Shapes/Hexachroma/NE_Petal.png
+      sub_texture: !!int 3
+
+  - name: petal_se_texture
+    kind: AtlasTexture
+    params:
+      path: res://Resources/Coloured_Shapes/Hexachroma/SE_Petal.png
+      sub_texture: !!int 3
+
+  - name: petal_s_texture
+    kind: AtlasTexture
+    params:
+      path: res://Resources/Coloured_Shapes/Hexachroma/S_Petal.png
+      sub_texture: !!int 3
+
+  - name: petal_sw_texture
+    kind: AtlasTexture
+    params:
+      path: res://Resources/Coloured_Shapes/Hexachroma/SW_Petal.png
+      sub_texture: !!int 3
+
+  - name: petal_nw_texture
+    kind: AtlasTexture
+    params:
+      path: res://Resources/Coloured_Shapes/Hexachroma/NW_Petal.png
+      sub_texture: !!int 3
+  
+  - name: pistel_texture
+    kind: AtlasTexture
+    params:
+      path: res://Resources/Coloured_Shapes/Hexachroma/Pistle.png
+      sub_texture: !!int 3
+
+genome:
+  - name: colour_n
+    alleles:
+      - W
+      - "y"
+      - b
+      - x
+    default: WW
+    phenotypes:
+      W*:
+        interactions:
+          - ne_white
+          - nw_white
+        modules:
+          petal_n_texture:
+            sub_texture: !!int 3
+      yb:
+        interactions:
+          - ne_yellow
+          - ne_blue
+          - nw_yellow
+          - nw_blue
+        modules:
+          petal_n_texture:
+            sub_texture: !!int 5
+      y*:
+        interactions:
+          - ne_yellow
+          - nw_yellow
+        modules:
+          petal_n_texture:
+            sub_texture: !!int 1
+      b*:
+        interactions:
+          - ne_blue
+          - nw_blue
+        modules:
+          petal_n_texture:
+            sub_texture: !!int 4
+      xx:
+        interactions:
+          - blend_n
+
+  - name: colour_ne
+    alleles:
+      - W
+      - "y"
+      - b
+      - xSorry i 
+    default: WW
+    phenotypes:
+      W*:
+        interactions:
+          - n_white
+          - se_white
+        modules:
+          petal_n_texture:
+            sub_texture: !!int 3
+      yb:
+        interactions:
+          - n_yellow
+          - n_blue
+          - se_yellow
+          - se_blue
+        modules:
+          petal_n_texture:
+            sub_texture: !!int 5
+      y*:
+        interactions:
+          - n_yellow
+          - se_yellow
+        modules:
+          petal_n_texture:
+            sub_texture: !!int 1
+      b*:
+        interactions:
+          - n_blue
+          - se_blue
+        modules:
+          petal_n_texture:
+            sub_texture: !!int 4
+      xx:
+        interactions:
+          - blend_ne
+  
+  - name: colour_se
+    alleles:
+      - W
+      - "y"
+      - b
+      - xSorry i 
+    default: WW
+    phenotypes:
+      W*:
+        interactions:
+          - ne_white
+          - s_white
+        modules:
+          petal_se_texture:
+            sub_texture: !!int 3
+      yb:
+        interactions:
+          - ne_yellow
+          - ne_blue
+          - s_yellow
+          - s_blue
+        modules:
+          petal_se_texture:
+            sub_texture: !!int 5
+      y*:
+        interactions:
+          - ne_yellow
+          - s_yellow
+        modules:
+          petal_se_texture:
+            sub_texture: !!int 1
+      b*:
+        interactions:
+          - ne_blue
+          - s_blue
+        modules:
+          petal_se_texture:
+            sub_texture: !!int 4
+      xx:
+        interactions:
+          - blend_se
+  
+  - name: colour_s
+    alleles:
+      - W
+      - "y"
+      - b
+      - xSorry i 
+    default: WW
+    phenotypes:
+      W*:
+        interactions:
+          - se_white
+          - sw_white
+        modules:
+          petal_se_texture:
+            sub_texture: !!int 3
+      yb:
+        interactions:
+          - se_yellow
+          - se_blue
+          - sw_yellow
+          - sw_blue
+        modules:
+          petal_se_texture:
+            sub_texture: !!int 5
+      y*:
+        interactions:
+          - se_yellow
+          - sw_yellow
+        modules:
+          petal_se_texture:
+            sub_texture: !!int 1
+      b*:
+        interactions:
+          - se_blue
+          - sw_blue
+        modules:
+          petal_se_texture:
+            sub_texture: !!int 4
+      xx:
+        interactions:
+          - blend_s
+
+  - name: colour_sw
+    alleles:
+      - W
+      - "y"
+      - b
+      - xSorry i 
+    default: WW
+    phenotypes:
+      W*:
+        interactions:
+          - s_white
+          - nw_white
+        modules:
+          petal_sw_texture: 
+            sub_texture: !!int 3
+      yb:
+        interactions:
+          - s_yellow
+          - s_blue
+          - nw_yellow
+          - nw_blue
+        modules:
+          petal_sw_texture:
+            sub_texture: !!int 5
+      y*:
+        interactions:
+          - s_yellow
+          - nw_yellow
+        modules:
+          petal_sw_texture:
+            sub_texture: !!int 1
+      b*:
+        interactions:
+          - s_blue
+          - nw_blue
+        modules:
+          petal_sw_texture:
+            sub_texture: !!int 4
+      xx:
+        interactions:
+          - blend_sw
+        
+  - name: colour_nw
+    alleles:
+      - W
+      - "y"
+      - b
+      - xSorry i 
+    default: WW
+    phenotypes:
+      W*:
+        interactions:
+          - se_white
+          - n_white
+        modules:
+          petal_sw_texture: 
+            sub_texture: !!int 3
+      yb:
+        interactions:
+          - se_yellow
+          - se_blue
+          - n_yellow
+          - n_blue
+        modules:
+          petal_sw_texture:
+            sub_texture: !!int 5
+      y*:
+        interactions:
+          - se_yellow
+          - n_yellow
+        modules:
+          petal_sw_texture:
+            sub_texture: !!int 1
+      b*:
+        interactions:
+          - se_blue
+          - n_blue
+        modules:
+          petal_sw_texture:
+            sub_texture: !!int 4
+      xx:
+        interactions:
+          - blend_nw
+
+interactions:
+  - name: n_blue
+    requirements: 
+      - - n_blue
+        - n_blend
+    results:
+      modules:
+        petal_n_texture: 
+          sub_texture: !!int 4
+  - name: n_yellow
+    requirements: 
+      - - n_yellow
+        - n_blend
+    results:
+      modules:
+        petal_n_texture: 
+          sub_texture: !!int 1
+  - name: n_green
+    requirements:
+      - - n_yellow
+        - n_blue
+        - n_blend
+    results:
+      modules:
+        petal_n_texture: 
+          sub_texture: !!int 5
+  - name: n_cream
+    requirements:
+      - - n_yellow
+        - n_white
+        - n_blend
+    results:
+      modules:
+        petal_n_texture: 
+          sub_texture: !!int 9
+  - name: n_sky
+    requirements:
+      - - n_blue
+        - n_white
+        - n_blend
+    results:
+      modules:
+        petal_n_texture: 
+          sub_texture: !!int 12
+
+  - name: ne_blue
+    requirements: 
+      - - ne_blue
+        - ne_blend
+    results:
+      modules:
+        petal_ne_texture: 
+          sub_texture: !!int 4
+  - name: ne_yellow
+    requirements: 
+      - - ne_yellow
+        - ne_blend
+    results:
+      modules:
+        petal_ne_texture: 
+          sub_texture: !!int 1
+  - name: ne_green
+    requirements:
+      - - ne_yellow
+        - ne_blue
+        - ne_blend
+    results:
+      modules:
+        petal_ne_texture: 
+          sub_texture: !!int 5
+  - name: ne_cream
+    requirements:
+      - - ne_yellow
+        - ne_white
+        - ne_blend
+    results:
+      modules:
+        petal_ne_texture: 
+          sub_texture: !!int 9
+  - name: ne_sky
+    requirements:
+      - - ne_blue
+        - ne_white
+        - ne_blend
+    results:
+      modules:
+        petal_ne_texture: 
+          sub_texture: !!int 12
+
+  - name: se_blue
+    requirements: 
+      - - se_blue
+        - se_blend
+    results:
+      modules:
+        petal_se_texture: 
+          sub_texture: !!int 4
+  - name: se_yellow
+    requirements: 
+      - - se_yellow
+        - se_blend
+    results:
+      modules:
+        petal_se_texture: 
+          sub_texture: !!int 1
+  - name: se_green
+    requirements:
+      - - se_yellow
+        - se_blue
+        - se_blend
+    results:
+      modules:
+        petal_se_texture: 
+          sub_texture: !!int 5
+  - name: se_cream
+    requirements:
+      - - se_yellow
+        - se_white
+        - se_blend
+    results:
+      modules:
+        petal_se_texture: 
+          sub_texture: !!int 9
+  - name: se_sky
+    requirements:
+      - - se_blue
+        - se_white
+        - se_blend
+    results:
+      modules:
+        petal_se_texture: 
+          sub_texture: !!int 12
+
+  - name: s_blue
+    requirements: 
+      - - s_blue
+        - s_blend
+    results:
+      modules:
+        petal_s_texture: 
+          sub_texture: !!int 4
+  - name: s_yellow
+    requirements: 
+      - - s_yellow
+        - s_blend
+    results:
+      modules:
+        petal_s_texture: 
+          sub_texture: !!int 1
+  - name: s_green
+    requirements:
+      - - s_yellow
+        - s_blue
+        - s_blend
+    results:
+      modules:
+        petal_s_texture: 
+          sub_texture: !!int 5
+  - name: s_cream
+    requirements:
+      - - s_yellow
+        - s_white
+        - s_blend
+    results:
+      modules:
+        petal_s_texture: 
+          sub_texture: !!int 9
+  - name: s_sky
+    requirements:
+      - - s_blue
+        - s_white
+        - s_blend
+    results:
+      modules:
+        petal_s_texture: 
+          sub_texture: !!int 12
+
+  - name: sw_blue
+    requirements: 
+      - - sw_blue
+        - sw_blend
+    results:
+      modules:
+        petal_sw_texture: 
+          sub_texture: !!int 4
+  - name: sw_yellow
+    requirements: 
+      - - sw_yellow
+        - sw_blend
+    results:
+      modules:
+        petal_sw_texture: 
+          sub_texture: !!int 1
+  - name: sw_green
+    requirements:
+      - - sw_yellow
+        - sw_blue
+        - sw_blend
+    results:
+      modules:
+        petal_sw_texture: 
+          sub_texture: !!int 5
+  - name: sw_cream
+    requirements:
+      - - sw_yellow
+        - sw_white
+        - sw_blend
+    results:
+      modules:
+        petal_sw_texture: 
+          sub_texture: !!int 9
+  - name: sw_sky
+    requirements:
+      - - sw_blue
+        - sw_white
+        - sw_blend
+    results:
+      modules:
+        petal_sw_texture: 
+          sub_texture: !!int 12
+
+  - name: nw_blue
+    requirements: 
+      - - nw_blue
+        - nw_blend
+    results:
+      modules:
+        petal_nw_texture: 
+          sub_texture: !!int 4
+  - name: nw_yellow
+    requirements: 
+      - - nw_yellow
+        - nw_blend
+    results:
+      modules:
+        petal_nw_texture: 
+          sub_texture: !!int 1
+  - name: nw_green
+    requirements:
+      - - nw_yellow
+        - nw_blue
+        - nw_blend
+    results:
+      modules:
+        petal_nw_texture: 
+          sub_texture: !!int 5
+  - name: nw_cream
+    requirements:
+      - - nw_yellow
+        - nw_white
+        - nw_blend
+    results:
+      modules:
+        petal_nw_texture: 
+          sub_texture: !!int 9
+  - name: nw_sky
+    requirements:
+      - - nw_blue
+        - nw_white
+        - nw_blend
+    results:
+      modules:
+        petal_nw_texture: 
+          sub_texture: !!int 12

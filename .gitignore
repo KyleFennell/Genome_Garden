@@ -3,8 +3,11 @@
 
 # Godot-specific ignores
 .import/
+addons/
+Screenshots/
 export.cfg
 export_presets.cfg
+.old
 
 # Imported translations (automatically generated from CSV files)
 *.translation
