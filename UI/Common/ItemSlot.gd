@@ -8,7 +8,7 @@ class_name ItemSlot
 @export var dropable: bool = true
 
 signal slot_contence_changed
-var item = null
+var item: Item = null
 
 func _ready():
 	if item == null:
@@ -42,7 +42,7 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 
 func _get_drag_data(_at_position: Vector2) -> Variant:
 	if dragable and item != null:
-		
+		print(item.genes)
 		create_drag_preview()
 		ItemDisplay.hide()
 		

@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://ckagbe2kblchq"]
+
+[ext_resource type="StyleBox" uid="uid://boyhwcuefkdjp" path="res://Panel.tres" id="1_im7ov"]
+[ext_resource type="Script" path="res://UI/Breeding_Row/Breeding_Row.gd" id="2_8doha"]
+[ext_resource type="PackedScene" uid="uid://bdm8heeojuy7h" path="res://UI/Common/ItemSlot.tscn" id="3_516fc"]
+[ext_resource type="PackedScene" uid="uid://cc3evauixtx3l" path="res://UI/Common/ProgressArrow.tscn" id="4_61nhy"]
+
+[node name="BreedingAutomation" type="PanelContainer"]
+offset_right = 200.0
+offset_bottom = 200.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+theme_override_styles/panel = ExtResource("1_im7ov")
+script = ExtResource("2_8doha")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="Input1" parent="HBoxContainer" instance=ExtResource("3_516fc")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Input2" parent="HBoxContainer" instance=ExtResource("3_516fc")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ProgressArrow" parent="HBoxContainer" instance=ExtResource("4_61nhy")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Outputs" parent="HBoxContainer" instance=ExtResource("3_516fc")]
+unique_name_in_owner = true
+layout_mode = 2
+dropable = false

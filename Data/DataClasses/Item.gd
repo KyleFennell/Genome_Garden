@@ -38,6 +38,11 @@ func equals(other: Item, idenfied_relevant: bool=false) -> bool:
 		return false
 	return GeneHelpers.genes_match(self.genes, other.genes)
 
+func phenotype_equals(other: Item) -> bool:
+	if not other is Item:
+		return false
+	return GeneHelpers.phenotypes_match(self, other)
+
 func identify():
 	identified = true
 	species.identify(genes)

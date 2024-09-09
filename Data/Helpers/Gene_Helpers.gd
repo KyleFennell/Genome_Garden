@@ -215,6 +215,24 @@ static func genes_match(g1: Dictionary, g2: Dictionary) -> bool:
 			return false
 	return true
 
+static func phenotypes_match(item1: Item, item2: Item) -> bool:
+	var phen1 = get_phenotype(item1.species, item1.genes)
+	var phen2 = get_phenotype(item2.species, item2.genes)
+	
+	var p1_keys: Array = phen1.keys()
+	var p2_keys: Array = phen2.keys()
+	p1_keys.sort()
+	p2_keys.sort()
+	
+	if p1_keys != p2_keys:
+		return false
+		
+	for k in phen1.keys():
+		if phen1[k] != phen2[k]:
+			return false
+	
+	return true
+
 static func alleles_match(a1: String, a2: String) -> bool:
 	for i in a1.length(): 
 		if a1[i] == "*" or a2[i] == "*" or a1[i] == a2[i]:
@@ -242,4 +260,3 @@ static func get_heterozygous_count_raw(raw_genotype: String) -> int:
 		if raw_genotype[2*i] != raw_genotype[2*i+1]:
 			count += 1
 	return count
-	
