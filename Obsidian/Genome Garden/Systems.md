@@ -1,0 +1,3 @@
+- [[Breeding]] - Breed plants to fulfil customer orders and refine potion recipes  
+- [[Alchemy]] - Process plants in various ways to create potions to sell to customers and improve your garden
+- [[Customers]] - Run a Florist/Alchemist shop where customers can come purchase your flowers and remedies
